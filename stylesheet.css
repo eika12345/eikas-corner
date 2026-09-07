@@ -21,22 +21,27 @@ body {
     flex-direction: column;
 }
 
-.logo img {
+.logo a {
     display: block;
     width: 30%;
-    height: auto;
     margin: 20px auto 0;
     padding-bottom: 30px;
 }
 
+.logo a img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 @media (max-width: 1280px) {
-    .logo img {
+    .logo a {
         width: 40%;
     }
 }
 
 @media (max-width: 750px) {
-    .logo img {
+    .logo a {
         width: 90%;
     }
 }
@@ -84,7 +89,8 @@ body {
     flex-direction: column;
     gap: 20px;
     padding: 60px 40px;
-    min-width: 160px;
+    width: 220px;
+    flex: 0 0 220px;
 }
 
 .sidebar a {
@@ -193,6 +199,8 @@ body {
         justify-content: center;
         gap: 20px 30px;
         padding: 20px;
+        width: auto;
+        flex: 0 1 auto;
         min-width: 0;
     }
 
