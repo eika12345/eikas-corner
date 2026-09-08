@@ -329,3 +329,86 @@ body {
         font-size: 16px;
     }
 }
+/* ── guestbook ── */
+.guestbook-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.guestbook-form {
+    margin-bottom: 60px;
+    padding-bottom: 45px;
+    border-bottom: 1px dashed #F5F3F0;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-row label {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a2a6e2;
+    margin-bottom: 8px;
+}
+
+.guestbook-form input,
+.guestbook-form textarea {
+    background-color: transparent;
+    border: 1px solid #F5F3F0;
+    color: #F5F3F0;
+    font-family: EBGaramond;
+    font-size: 16px;
+    padding: 10px 12px;
+    resize: vertical;
+}
+
+.guestbook-form input:focus,
+.guestbook-form textarea:focus {
+    outline: none;
+    border-color: #a2a6e2;
+}
+
+.guestbook-form button {
+    background-color: transparent;
+    border: 1px solid #F5F3F0;
+    color: #F5F3F0;
+    font-family: EBGaramond;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.guestbook-form button:hover {
+    background-color: #F5F3F0;
+    color: #141413;
+}
+
+.guestbook-form button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.gb-status {
+    margin-top: 14px;
+    font-size: 14px;
+    font-style: italic;
+    opacity: 0.75;
+}
+
+.gb-loading,
+.gb-empty,
+.gb-error {
+    opacity: 0.7;
+    font-style: italic;
+}
+
+.gb-entry .entry-title {
+    font-size: 20px;
+}

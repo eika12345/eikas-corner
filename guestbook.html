@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eikas Corner — Guestbook</title>
+
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <script src="https://cdn.jsdelivr.net/npm/postreq/dist/postreq.min.js"></script>
+</head>
+<body>
+
+    <div class="logo">
+        <a href="index.html">
+        <img src="images/eikascornerlogo.png" alt="eikascornerlogo">
+        </a>
+    </div>
+
+    <div class="separator"></div>
+
+<div class="page">
+
+    <nav class="sidebar sidebar-left">
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="guestbook.html">Guestbook</a>
+    </nav>
+    <div class="vertical-separator divider-left"></div>
+
+    <div class="main">
+        <div class="hero">
+            <h1>Leave a little something behind.</h1>
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="content guestbook-content">
+
+            <form id="guestbook-form" class="guestbook-form">
+                <div class="form-row">
+                    <label for="gb-name">Name</label>
+                    <input type="text" id="gb-name" name="name" maxlength="40" required>
+                </div>
+                <div class="form-row">
+                    <label for="gb-message">Message</label>
+                    <textarea id="gb-message" name="message" maxlength="500" rows="4" required></textarea>
+                </div>
+                <button type="submit">Sign</button>
+                <p id="gb-status" class="gb-status"></p>
+            </form>
+
+            <div id="guestbook-entries" class="guestbook-entries">
+                <p class="gb-loading">loading entries...</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="vertical-separator divider-right"></div>
+    <nav class="sidebar sidebar-right">
+        <a href="https://open.spotify.com/playlist/4bAnjmeCV11FUV1XMET7eQ" target="_blank">Heavenly DnB (Spotify)</a>
+        <a href="https://github.com/eika12345" target="_blank">Dev Corner (Github)</a>
+        <a href="https://eika12345.github.io/portfolio/" target="_blank">Portfolio</a>
+    </nav>
+
+</div>
+
+<script src="guestbook.js"></script>
+</body>
+</html>
