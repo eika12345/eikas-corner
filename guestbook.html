@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
 
+    <!-- POSTreq: works around Neocities' free-tier CSP so fetch() can reach Supabase.
+         Only the library is loaded here. It must NOT be initialized until <body>
+         exists (its constructor does document.body.appendChild on an iframe), so
+         the actual `new POSTreq.POSTreq()` call lives in guestbook.js instead,
+         which is loaded at the end of <body>. -->
     <script src="https://cdn.jsdelivr.net/npm/postreq/dist/postreq.min.js"></script>
 </head>
 <body>
@@ -38,18 +43,24 @@
 
         <div class="content guestbook-content">
 
-            <form id="guestbook-form" class="guestbook-form">
-                <div class="form-row">
-                    <label for="gb-name">Name</label>
-                    <input type="text" id="gb-name" name="name" maxlength="40" required>
-                </div>
-                <div class="form-row">
-                    <label for="gb-message">Message</label>
-                    <textarea id="gb-message" name="message" maxlength="500" rows="4" required></textarea>
-                </div>
-                <button type="submit">Sign</button>
-                <p id="gb-status" class="gb-status"></p>
-            </form>
+            <div class="guestbook-form-wrap">
+                <img src="images/flower.png" alt="" class="guestbook-flower guestbook-flower-left" aria-hidden="true">
+
+                <form id="guestbook-form" class="guestbook-form">
+                    <div class="form-row">
+                        <label for="gb-name">Name</label>
+                        <input type="text" id="gb-name" name="name" maxlength="40" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="gb-message">Message</label>
+                        <textarea id="gb-message" name="message" maxlength="500" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">Sign</button>
+                    <p id="gb-status" class="gb-status"></p>
+                </form>
+
+                <img src="images/flower.png" alt="" class="guestbook-flower guestbook-flower-right" aria-hidden="true">
+            </div>
 
             <div id="guestbook-entries" class="guestbook-entries">
                 <p class="gb-loading">loading entries...</p>

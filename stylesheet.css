@@ -335,10 +335,37 @@ body {
     margin: 0 auto;
 }
 
-.guestbook-form {
+.guestbook-form-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
     margin-bottom: 60px;
     padding-bottom: 45px;
     border-bottom: 1px dashed #F5F3F0;
+}
+
+.guestbook-form {
+    flex: 1;
+    min-width: 0;
+}
+
+.guestbook-flower {
+    flex: 0 0 auto;
+    width: 15%;
+    height: auto;
+    opacity: 0.9;
+    align-self: center;
+}
+
+.guestbook-flower-right {
+    transform: scaleX(-1);
+}
+
+@media (max-width: 750px) {
+    .guestbook-flower {
+        display: none;
+    }
 }
 
 .form-row {
@@ -383,6 +410,9 @@ body {
     padding: 10px 24px;
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease;
+    display: block;
+    margin: 0 auto;
+    
 }
 
 .guestbook-form button:hover {
