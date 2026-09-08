@@ -47,11 +47,51 @@ body {
 }
 
 .separator {
+    position: relative;
     width: 100%;
     height: 1px;
     background-color: #F5F3F0;
     opacity: 0.5;
 }
+
+/* top diamonds */
+.vertical-separator::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    background-color: #F5F3F0;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+@media (max-width: 750px) {
+    .vertical-separator::before {
+        display: none;
+    }
+}
+/* bottom diamonds */
+.main > .separator::before,
+.main > .separator::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    background-color: #F5F3F0;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.main > .separator::before {
+    left: 0;
+}
+
+.main > .separator::after {
+    left: 100%;
+}
+
+
 
 .main {
     color: #F5F3F0;
@@ -108,10 +148,13 @@ body {
 }
 
 .vertical-separator {
+    position: relative;
     width: 1px;
     background-color: #F5F3F0;
     opacity: 0.5;
 }
+
+
 
 /* ── diary entries ── */
 .content {
@@ -184,6 +227,62 @@ body {
     font-style: italic;
     opacity: 0.6;
     margin: 18px 0 10px;
+}
+
+/* ── gallery ── */
+.gallery-content {
+    padding: 40px 6% 80px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #F5F3F0;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+.gallery-item:hover {
+    opacity: 1;
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.gallery-item figcaption {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    color: #F5F3F0;
+    text-align: center;
+    padding: 10px 12px;
+    background-color: #141413;
+    border-top: 1px dashed #F5F3F0;
+}
+
+@media (max-width: 1300px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item img {
+        height: 400px;
+    }
 }
 
 @media (max-width: 750px) {
