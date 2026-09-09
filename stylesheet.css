@@ -163,7 +163,7 @@ body {
 
 
 
-/* ── diary entries ── */
+/* diary entries */
 .content {
     padding: 40px 8% 80px;
 }
@@ -258,7 +258,7 @@ body {
     margin: 18px 0 10px;
 }
 
-/* ── gallery ── */
+/* gallery */
 .gallery-content {
     padding: 40px 6% 80px;
 }
@@ -358,7 +358,56 @@ body {
         font-size: 16px;
     }
 }
-/* ── guestbook ── */
+/* footer */
+.footer {
+    color: #F5F3F0;
+    text-align: center;
+}
+
+.footer-content {
+    padding: 30px 5% 25px;
+}
+
+.footer-links {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.footer-links a {
+    color: #F5F3F0;
+    text-decoration: none;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+    margin: 0 12px;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.footer-text {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    opacity: 0.6;
+    margin-bottom: 6px;
+}
+
+.footer-updated {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    opacity: 0.45;
+    font-style: italic;
+}
+
+@media (max-width: 750px) {
+    .footer-content {
+        padding: 25px 6% 20px;
+    }
+}
+/* guestbook */
 .guestbook-content {
     max-width: 700px;
     margin: 0 auto;

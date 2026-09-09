@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
-<body>
+<body id="top">
 
     <div class="logo">
         <a href="index.html">
@@ -35,7 +35,8 @@
         <div class="separator"></div>
 
         <div class="content">
-            <button id="sort-toggle" class="sort-toggle" type="button">Oldest</button>
+
+            <button id="sort-toggle" class="sort-toggle" type="button">Show oldest first</button>
 
             <article class="entry">
                 <p class="entry-date">08/09/2026 - 00:42</p>
@@ -47,8 +48,6 @@
                     <p class="entry-mood">update 08/09/2026</p>
                     <p>- added a gallery</p>
                     <p>- added a guestbook</p>
-                    <p class="entry-mood">update 09/09/2026</p>
-                    <p>- added a date re-orderer idk</p>
                 </div>
             </article>
 
@@ -219,8 +218,22 @@
         <a href="https://github.com/eika12345" target="_blank">Dev Corner (Github)</a>
         <a href="https://eika12345.github.io/portfolio/" target="_blank">Portfolio</a>
     </nav>
-
 </div>
+
+<footer class="footer">
+    <div class="separator"></div>
+    <div class="footer-content">
+        <p class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="guestbook.html">Guestbook</a>
+           <a href="https://eika12345.github.io/portfolio/" target="_blank">Portfolio</a>
+        </p>
+        <p class="footer-text">WELCOME TO THE BEGINNING</p>
+        <p class="footer-text">Best viewed on desktop</p>
+        <p class="footer-text">Made by Erikas. P</p>
+    </div>
+</footer>
 
 <script>
     (function () {
@@ -236,7 +249,7 @@
                 content.appendChild(entry);
             });
             newestFirst = !newestFirst;
-            btn.textContent = newestFirst ? 'Oldest' : 'Newest';
+            btn.textContent = newestFirst ? 'Show oldest first' : 'Show newest first';
         });
     })();
 </script>
