@@ -11,6 +11,7 @@
 
 html {
     height: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -19,6 +20,7 @@ body {
     font-family: EBGaramond;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 .logo a {
@@ -68,6 +70,11 @@ body {
 
 @media (max-width: 750px) {
     .vertical-separator::before {
+        display: none;
+    }
+
+    .main > .separator::before,
+    .main > .separator::after {
         display: none;
     }
 }
