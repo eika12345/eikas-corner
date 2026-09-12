@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eikas Corner</title>
-    
+    <title>Eikas Corner | Home</title>
+    <meta name="description" content="A personal blog about my deluded thoughts.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Eikas Corner | Home">
+    <meta property="og:description" content="A personal blog about my deluded thoughts.">
+    <meta property="og:image" content="https://eikascorner.neocities.org/images/eikascornerlogo.png">
+    <meta property="og:url" content="https://eikascorner.neocities.org/">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Eikas Corner | Home">
+    <meta name="twitter:description" content="A personal blog about my deluded thoughts.">
+    <meta name="twitter:image" content="https://eikascorner.neocities.org/images/eikascornerlogo.png">
+
+    <link rel="alternate" type="application/rss+xml" title="Eikas Corner RSS Feed" href="feed.xml">
+
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
@@ -36,7 +50,7 @@
         <div class="separator"></div>
 
         <div class="content">
-            <button id="sort-toggle" class="sort-toggle" type="button">Show oldest first</button>
+            <button id="sort-toggle" class="sort-toggle" type="button">Oldest</button>
 
             <article class="entry">
                 <p class="entry-date">09/09/2026 - 14:25</p>
@@ -261,7 +275,7 @@
                 content.appendChild(entry);
             });
             newestFirst = !newestFirst;
-            btn.textContent = newestFirst ? 'Show oldest first' : 'Show newest first';
+            btn.textContent = newestFirst ? 'Oldest' : 'Newest';
         });
     })();
 </script>
