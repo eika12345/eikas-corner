@@ -43,18 +43,18 @@
     (function () {
         var textEl = document.getElementById('typewriter-text');
         if (!textEl) return;
-
+ 
         var lines = [
             "The webmaster wasn't expecting visitors today...",
             "I suppose I can let you in for a small while.."
         ];
-
+ 
         var typeSpeed = 45;
         var pauseAfterType = 1400;
-
+ 
         var lineIndex = 0;
         var charIndex = 0;
-
+ 
         function typeLine() {
             var current = lines[lineIndex];
             if (charIndex <= current.length) {
@@ -72,9 +72,11 @@
                 if (gate) gate.classList.add('gate-visible');
             }
         }
-
-        typeLine();
-
+ 
+        window.addEventListener('load', function () {
+            typeLine();
+        });
+ 
         var continueBtn = document.getElementById('continue-btn');
         if (continueBtn) {
             continueBtn.addEventListener('click', function () {
@@ -83,6 +85,7 @@
         }
     })();
 </script>
+
 
 </body>
 </html>
