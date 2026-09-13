@@ -30,6 +30,8 @@
         </a>
     </div>
 
+    <div class="page-fade fade-out">
+
     <div class="separator"></div>
 
 <div class="page">
@@ -63,12 +65,10 @@
             <img src="images/skeletonhands.png" alt="skeleton hands divider" class="about-divider">
 
 
-            <div class="latest-entry">
-                <p class="entry-date">09/09/2026 - 14:25</p>
-                <h2 class="entry-title">Maya</h2>
-                <div class="entry-body">
-                    <p>5 years ago, I used to live by a massive park, and I'd walk Maya every single day after school. She was around 5 or 6 years old at this time, and had so much energy she would be impossible to contain...</p>
-                </div>
+            <div class="latest-entry" id="latest-entry">
+                <p class="entry-date" id="latest-entry-date"></p>
+                <h2 class="entry-title" id="latest-entry-title"></h2>
+                <div class="entry-body" id="latest-entry-body"></div>
                 <a href="blog.html" class="read-more">Read more on the blog →</a>
             </div>
         </div>
@@ -79,6 +79,7 @@
         <a href="https://www.instagram.com/erikas.2005/?hl=en" target="_blank">Instagram</a>
         <a href="https://github.com/eika12345" target="_blank">Dev Corner (Github)</a>
         <a href="https://eika12345.github.io/portfolio/" target="_blank">Portfolio</a>
+        <a href="sources.html">Sources</a>
     </nav>
 </div>
 
@@ -98,7 +99,57 @@
     </div>
 </footer>
 
+    </div>
+
 <script>
+    (function () {
+        var pageFade = document.querySelector('.page-fade');
+        if (!pageFade) return;
+
+        var shouldFade = sessionStorage.getItem('fadeTransition') === '1';
+        sessionStorage.removeItem('fadeTransition');
+
+        if (shouldFade) {
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    pageFade.classList.remove('fade-out');
+                });
+            });
+        } else {
+            pageFade.style.transition = 'none';
+            pageFade.classList.remove('fade-out');
+            void pageFade.offsetWidth; // force reflow before re-enabling transition
+            pageFade.style.transition = '';
+        }
+    })();
+</script>
+
+<script>
+    (function () {
+        var wrap = document.getElementById('latest-entry');
+        if (!wrap) return;
+
+        fetch('blog.html')
+            .then(function (res) { return res.text(); })
+            .then(function (html) {
+                var doc = new DOMParser().parseFromString(html, 'text/html');
+                var latest = doc.querySelector('.entry');
+                if (!latest) return;
+
+                var date = latest.querySelector('.entry-date');
+                var title = latest.querySelector('.entry-title');
+                var body = latest.querySelector('.entry-body');
+
+                document.getElementById('latest-entry-date').textContent = date ? date.textContent : '';
+                document.getElementById('latest-entry-title').textContent = title ? title.textContent : '';
+                document.getElementById('latest-entry-body').innerHTML = body ? body.innerHTML : '';
+            })
+            .catch(function (err) {
+                console.error('Could not load latest blog entry:', err);
+                wrap.style.display = 'none';
+            });
+    })();
+
     (function () {
         var btn = document.getElementById('sort-toggle');
         var content = document.querySelector('.content');

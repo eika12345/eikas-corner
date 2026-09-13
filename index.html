@@ -29,12 +29,14 @@
     </div>
 
 
-    <div class="splash-wrap">
-        <div class="splash">
-            <h1 id="typewriter"><span id="typewriter-text"></span></h1>
+    <div class="page-fade">
+        <div class="splash-wrap">
+            <div class="splash">
+                <h1 id="typewriter"><span id="typewriter-text"></span></h1>
 
-            <div id="gate" class="gate">
-                <button id="continue-btn" class="continue-btn" type="button">Enter</button>
+                <div id="gate" class="gate">
+                    <button id="continue-btn" class="continue-btn" type="button">Enter</button>
+                </div>
             </div>
         </div>
     </div>
@@ -80,7 +82,12 @@
         var continueBtn = document.getElementById('continue-btn');
         if (continueBtn) {
             continueBtn.addEventListener('click', function () {
-                window.location.href = 'home.html';
+                var pageFade = document.querySelector('.page-fade');
+                if (pageFade) pageFade.classList.add('fade-out');
+                sessionStorage.setItem('fadeTransition', '1');
+                setTimeout(function () {
+                    window.location.href = 'home.html';
+                }, 400);
             });
         }
     })();

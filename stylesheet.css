@@ -23,6 +23,17 @@ body {
     overflow-x: hidden;
 }
 
+.page-fade {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    transition: opacity 0.4s ease;
+}
+
+.page-fade.fade-out {
+    opacity: 0;
+}
+
 .logo a {
     display: block;
     width: 30%;
@@ -305,6 +316,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-image: linear-gradient(to bottom, rgba(20, 20, 19, 0.9) 0%, rgba(20, 20, 19, 0.25) 800px, rgba(20, 20, 19, 0.25) 100%), url('images/seabg.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .splash-wrap {
@@ -486,26 +501,29 @@ body {
 
 @media (max-width: 750px) {
     .page {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 14px 26px;
+        padding: 20px 8% 0;
     }
 
     .sidebar-left,
     .sidebar-right {
-        order: 1;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px 30px;
-        padding: 20px;
-        width: auto;
-        flex: 0 1 auto;
-        min-width: 0;
+        display: contents;
+    }
+
+    .sidebar-left a,
+    .sidebar-right a {
+        font-size: 16px;
     }
 
     .divider-left {
         order: 2;
         width: 100%;
         height: 1px;
+        margin-top: 20px;
     }
 
     .divider-right {
@@ -514,6 +532,7 @@ body {
 
     .main {
         order: 3;
+        width: 100%;
     }
 
     .content {
@@ -577,6 +596,49 @@ body {
         padding: 25px 6% 20px;
     }
 }
+/* sources */
+.sources-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 8% 60px;
+}
+
+.sources-section {
+    margin-bottom: 45px;
+}
+
+.sources-section:last-child {
+    margin-bottom: 0;
+}
+
+.sources-list {
+    list-style: none;
+}
+
+.sources-list li {
+    font-size: 17px;
+    color: #F5F3F0;
+    line-height: 1.9;
+    opacity: 0.9;
+}
+
+.sources-list a {
+    color: #F5F3F0;
+    text-decoration: underline;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}
+
+.sources-list a:hover {
+    opacity: 1;
+}
+
+@media (max-width: 750px) {
+    .sources-content {
+        padding: 30px 6% 40px;
+    }
+}
+
 /* guestbook */
 .guestbook-content {
     max-width: 700px;
