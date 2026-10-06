@@ -591,6 +591,10 @@ body {
     font-style: italic;
 }
 
+#bonki-ring {
+    margin: 20px 0;
+}
+
 @media (max-width: 750px) {
     .footer-content {
         padding: 25px 6% 20px;
