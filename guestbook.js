@@ -51,7 +51,7 @@ async function loadEntries() {
 
 function renderEntries(entries) {
     if (!entries.length) {
-        entriesEl.innerHTML = `<p class="gb-empty">no one's signed yet — be the first.</p>`;
+        entriesEl.innerHTML = `<p class="gb-empty">no one's signed yet, be the first.</p>`;
         return;
     }
 
@@ -94,7 +94,7 @@ form.addEventListener("submit", async (e) => {
         statusEl.textContent = "thanks for signing!";
         loadEntries();
     } catch (err) {
-        statusEl.textContent = "something went wrong — try again.";
+        statusEl.textContent = "something went wrong, reload?.";
         console.error(err);
     } finally {
         submitBtn.disabled = false;
