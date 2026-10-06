@@ -67,7 +67,7 @@ body {
     opacity: 0.5;
 }
 
-/* top diamonds */
+/*----------------------top diamonds------------------------*/
 .vertical-separator::before {
     content: "";
     position: absolute;
@@ -89,7 +89,7 @@ body {
         display: none;
     }
 }
-/* bottom diamonds */
+/*----------------bottom diamonds-------------*/
 .main > .separator::before,
 .main > .separator::after {
     content: "";
@@ -137,6 +137,7 @@ body {
         padding: 10% 5%;
     }
 }
+
 
 .page {
     display: flex;
@@ -201,7 +202,7 @@ body {
         width: 70%;
     }
 }
-/* diary entries */
+/*------------------------diary entries--------------------------*/
 .content {
     padding: 40px 8% 40px;
 }
@@ -313,7 +314,7 @@ body {
     50.01%, 100% { opacity: 0; }
 }
 
-/* splash page */
+/*------------------index page ------------------------*/
 .splash-body {
     display: flex;
     flex-direction: column;
@@ -378,7 +379,7 @@ body {
     color: #141413;
 }
 
-/* home page */
+/*---------------------home page-------------------------*/
 .home-content {
     max-width: 720px;
     margin: 0 auto;
@@ -412,7 +413,7 @@ body {
 
 .latest-entry .read-more {
     display: inline-block;
-    margin-top: 10px;
+    margin-bottom: 50px;
     font-size: 14px;
     letter-spacing: 1px;
     color: #F5F3F0;
@@ -444,7 +445,127 @@ body {
         max-width: 100%;
     }
 }
+/*-------------------credit section----------------*/
+.credit-section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    text-align: center;
+    border-top: 1px solid rgba(245, 243, 240, 0.5);
+}
 
+.link-credit {
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid #F5F3F0;
+    color: #F5F3F0;
+    font-family: EBGaramond;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 28px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.link-credit:hover {
+    background-color: #F5F3F0;
+    color: #141413;
+}
+
+.credit-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    opacity: 0.9;
+}
+
+.credit-section .link-credit {
+    margin-top: 10px;
+}
+
+@media (max-width: 750px) {
+    .credit-section {
+        position: relative;
+        border-top: none;
+    }
+
+    .credit-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 100vw;
+        margin-left: -50vw;
+        height: 1px;
+        background-color: rgba(245, 243, 240, 0.5);
+    }
+}
+
+/*------------------------------cool websites------------------------------ */
+.cool-websites {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+.links-intro {
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.8;
+    opacity: 0.95;
+    margin-bottom: 40px;
+}
+
+.site-entry {
+    padding-bottom: 28px;
+    margin-bottom: 28px;
+    border-bottom: 1px dashed rgba(245, 243, 240, 0.25);
+}
+
+.site-entry:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.site-title {
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #F5F3F0;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.site-title:hover {
+    color: #a2a6e2;
+}
+
+.site-url {
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #a2a6e2;
+    margin: 6px 0 12px;
+}
+
+.site-desc {
+    font-size: 17px;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+@media (max-width: 750px) {
+    .site-title {
+        font-size: 22px;
+    }
+
+    .site-desc {
+        font-size: 16px;
+    }
+}
 /* gallery */
 .gallery-content {
     padding: 40px 6% 80px;
@@ -525,9 +646,15 @@ body {
 
     .divider-left {
         order: 2;
-        width: 100%;
+        width: 100vw;
+        flex-shrink: 0;
         height: 1px;
         margin-top: 6px;
+    }
+
+    .main > .separator {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
     }
 
     .divider-right {
@@ -537,6 +664,7 @@ body {
     .main {
         order: 3;
         width: 100%;
+        margin-top: -14px;
     }
 
     .content {
@@ -551,7 +679,7 @@ body {
         font-size: 16px;
     }
 }
-/* footer */
+/*-----------------------footer----------------------------*/
 .footer {
     color: #F5F3F0;
     text-align: center;
@@ -604,7 +732,7 @@ body {
         padding: 25px 6% 20px;
     }
 }
-/* sources */
+/*-------------------------sources------------------------*/
 .sources-content {
     max-width: 700px;
     margin: 0 auto;
@@ -648,7 +776,7 @@ body {
     }
 }
 
-/* guestbook */
+/*---------------------------------guestbook-------------------------------*/
 .guestbook-content {
     max-width: 700px;
     margin: 0 auto;
@@ -790,10 +918,10 @@ body {
     display: flow-root;
     background-image:
         linear-gradient(rgba(20, 20, 19, 0.6), rgba(20, 20, 19, 0.6)),
-        url('images/punpunbg.jpg');
-    background-size: auto, 300px 300px;
-    background-repeat: no-repeat, repeat;
-    background-position: 0 0, top left;
+        url('images/homepagebg.png');
+    background-size: auto, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 0, center;
 }
 
 .splash-body .logo {
@@ -808,6 +936,49 @@ body {
     background-size: auto, 300px 300px;
     background-repeat: no-repeat, repeat;
     background-position: 0 0, top left;
+}
+
+/* ----------- links page bgs ----------- */
+.links-page .main {
+    background-image:
+        linear-gradient(rgba(20, 20, 19, 0.7), rgba(20, 20, 19, 0.8)),
+        url('images/ditherbg.png');
+    background-size: auto, cover;
+    background-position: 0 0, center;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: scroll, scroll;
+}
+
+.links-page .logo {
+    background-image:
+        linear-gradient(rgba(20, 20, 19, 0.6), rgba(20, 20, 19, 0.6)),
+        url('images/noneyer');
+    background-size: auto, 300px 300px;
+    background-position: 0 0, top left;
+    background-repeat: no-repeat, repeat;
+}
+
+@media (min-width: 751px) {
+    .links-page .main {
+        background-attachment: scroll, fixed;
+    }
+
+    .links-page .sidebar-left,
+    .links-page .sidebar-right {
+        background-image:
+            linear-gradient(rgba(20, 20, 19, 0.6), rgba(20, 20, 19, 0.6)),
+            url('images/noneyet.png');
+        background-size: auto, 300px 300px;
+        background-position: 0 0, top left;
+        background-repeat: no-repeat, repeat;
+    }
+}
+
+@media (max-width: 750px) {
+    .links-page .page {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 /* -----------grain filter---------- */
