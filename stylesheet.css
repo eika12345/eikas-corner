@@ -523,7 +523,7 @@ body {
 .site-entry {
     padding-bottom: 28px;
     margin-bottom: 28px;
-    border-bottom: 1px dashed rgba(245, 243, 240, 0.25);
+    border-bottom: 1px dashed rgba(245, 243, 240);
 }
 
 .site-entry:last-child {
