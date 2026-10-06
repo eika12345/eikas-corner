@@ -118,6 +118,8 @@ body {
     flex-direction: column;
 }
 
+
+
 .hero {
     letter-spacing: 2px;
     font-size: 12px;
@@ -758,6 +760,54 @@ body {
 
 .gb-entry .entry-title {
     font-size: 20px;
+}
+
+/*----------sidebar + main bg---------*/
+@media (min-width: 751px) {
+
+.sidebar-left,
+.sidebar-right {
+    background-image:
+        linear-gradient(rgba(20, 20, 19, 0.6), rgba(20, 20, 19, 0.6)),
+        url('images/flowerbg.avif');
+    background-size: auto, 300px 300px;
+    background-position: 0 0, top left;
+    background-repeat: no-repeat, repeat;
+}
+
+    .main {
+        background-image:
+            linear-gradient(rgba(20, 20, 19, 0.75), rgba(20, 20, 19, 0.75)),
+            url('images/empty for now');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+/* -----------logo bg----------- */
+.logo {
+    display: flow-root;
+    background-image:
+        linear-gradient(rgba(20, 20, 19, 0.6), rgba(20, 20, 19, 0.6)),
+        url('images/punpunbg.jpg');
+    background-size: auto, 300px 300px;
+    background-repeat: no-repeat, repeat;
+    background-position: 0 0, top left;
+}
+
+.splash-body .logo {
+    background: none;
+}
+
+/* -----------footer bg----------- */
+.footer-content {
+    background-image:
+        linear-gradient(rgba(20, 20, 19, 0.6), rgba(20, 20, 19, 0.6)),
+        url('images/empty for now');
+    background-size: auto, 300px 300px;
+    background-repeat: no-repeat, repeat;
+    background-position: 0 0, top left;
 }
 
 /* -----------grain filter---------- */
