@@ -509,13 +509,15 @@ body {
         padding: 20px 8% 0;
     }
 
-    .sidebar-left,
-    .sidebar-right {
-        display: contents;
+    .sidebar-left {
+    display: contents;
     }
 
-    .sidebar-left a,
-    .sidebar-right a {
+    .sidebar-right {
+        display: none;
+    }
+
+    .sidebar-left a {
         font-size: 16px;
     }
 
@@ -523,7 +525,7 @@ body {
         order: 2;
         width: 100%;
         height: 1px;
-        margin-top: 20px;
+        margin-top: 6px;
     }
 
     .divider-right {
