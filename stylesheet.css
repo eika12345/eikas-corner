@@ -168,6 +168,10 @@ body {
     text-decoration: underline;
 }
 
+.sidebar-right {
+    text-align: right;
+}
+
 .vertical-separator {
     position: relative;
     width: 1px;
@@ -629,7 +633,7 @@ body {
         justify-content: center;
         align-items: center;
         gap: 14px 26px;
-        padding: 20px 8% 0;
+        padding: 20px 0 0;
     }
 
     .sidebar-left {
@@ -642,6 +646,7 @@ body {
 
     .sidebar-left a {
         font-size: 16px;
+        padding: 0 8px;
     }
 
     .divider-left {
@@ -712,7 +717,7 @@ body {
 .footer-text {
     font-size: 13px;
     letter-spacing: 0.5px;
-    opacity: 0.6;
+    opacity: 0.8;
     margin-bottom: 6px;
 }
 
@@ -889,99 +894,153 @@ body {
 .gb-entry .entry-title {
     font-size: 20px;
 }
+/*=========================================================BACKGROUNDS==========================================================*/
 
-/*----------sidebar + main bg---------*/
-@media (min-width: 751px) {
+:root {
+    --logo-img:      url('images/noneyet.png');
+    --logo-tint:     0.6;
+    --logo-size:     cover;
+    --logo-pos:      center;
+    --logo-repeat:   no-repeat;
 
-.sidebar-left,
-.sidebar-right {
-    background-image:
-        linear-gradient(rgba(20, 20, 19, 0.6), rgba(20, 20, 19, 0.6)),
-        url('images/flowerbg.avif');
-    background-size: auto, 300px 300px;
-    background-position: 0 0, top left;
-    background-repeat: no-repeat, repeat;
+    --main-img:      url('images/none.png');
+    --main-tint:     0.75;
+    --main-size:     auto;
+    --main-pos:      center;
+    --main-repeat:   repeat;
+    --main-attach:   fixed;
+
+    --sidebar-img:   url('images/bayerlight.png');
+    --sidebar-tint:  0.65;
+    --sidebar-size:  auto;
+    --sidebar-pos:   top left;
+    --sidebar-repeat: repeat;
+
+    --footer-img:    url('images/bayerlight.png');
+    --footer-tint:   0.65;
+    --footer-size:   auto;
+    --footer-pos:    top left;
+    --footer-repeat: repeat;
 }
 
-    .main {
-        background-image:
-            linear-gradient(rgba(20, 20, 19, 0.75), rgba(20, 20, 19, 0.75)),
-            url('images/empty for now');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-}
-
-/* -----------logo bg----------- */
 .logo {
     display: flow-root;
     background-image:
-        linear-gradient(rgba(20, 20, 19, 0.6), rgba(20, 20, 19, 0.6)),
-        url('images/homepagebg.png');
-    background-size: auto, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: 0 0, center;
+        linear-gradient(rgba(20, 20, 19, var(--logo-tint)), rgba(20, 20, 19, var(--logo-tint))),
+        var(--logo-img);
+    background-size: auto, var(--logo-size);
+    background-position: 0 0, var(--logo-pos);
+    background-repeat: no-repeat, var(--logo-repeat);
 }
 
 .splash-body .logo {
     background: none;
 }
 
-/* -----------footer bg----------- */
+.main {
+    background-image:
+        linear-gradient(rgba(20, 20, 19, var(--main-tint)), rgba(20, 20, 19, var(--main-tint))),
+        var(--main-img);
+    background-size: auto, var(--main-size);
+    background-position: 0 0, var(--main-pos);
+    background-repeat: no-repeat, var(--main-repeat);
+    background-attachment: scroll, var(--main-attach);
+}
+
 .footer-content {
     background-image:
-        linear-gradient(rgba(20, 20, 19, 0.6), rgba(20, 20, 19, 0.6)),
-        url('images/empty for now');
-    background-size: auto, 300px 300px;
-    background-repeat: no-repeat, repeat;
-    background-position: 0 0, top left;
+        linear-gradient(rgba(20, 20, 19, var(--footer-tint)), rgba(20, 20, 19, var(--footer-tint))),
+        var(--footer-img);
+    background-size: auto, var(--footer-size);
+    background-position: 0 0, var(--footer-pos);
+    background-repeat: no-repeat, var(--footer-repeat);
 }
 
-/* ----------- links page bgs ----------- */
-.links-page .main {
-    background-image:
-        linear-gradient(rgba(20, 20, 19, 0.7), rgba(20, 20, 19, 0.8)),
-        url('images/ditherbg.png');
-    background-size: auto, cover;
-    background-position: 0 0, center;
-    background-repeat: no-repeat, no-repeat;
-    background-attachment: scroll, scroll;
-}
-
-.links-page .logo {
-    background-image:
-        linear-gradient(rgba(20, 20, 19, 0.6), rgba(20, 20, 19, 0.6)),
-        url('images/noneyer');
-    background-size: auto, 300px 300px;
-    background-position: 0 0, top left;
-    background-repeat: no-repeat, repeat;
-}
-
+/* no bg on sidebars mobile */
 @media (min-width: 751px) {
-    .links-page .main {
-        background-attachment: scroll, fixed;
-    }
-
-    .links-page .sidebar-left,
-    .links-page .sidebar-right {
+    .sidebar-left,
+    .sidebar-right {
         background-image:
-            linear-gradient(rgba(20, 20, 19, 0.6), rgba(20, 20, 19, 0.6)),
-            url('images/noneyet.png');
-        background-size: auto, 300px 300px;
-        background-position: 0 0, top left;
-        background-repeat: no-repeat, repeat;
+            linear-gradient(rgba(20, 20, 19, var(--sidebar-tint)), rgba(20, 20, 19, var(--sidebar-tint))),
+            var(--sidebar-img);
+        background-size: auto, var(--sidebar-size);
+        background-position: 0 0, var(--sidebar-pos);
+        background-repeat: no-repeat, var(--sidebar-repeat);
     }
 }
 
-@media (max-width: 750px) {
-    .links-page .page {
-        padding-left: 0;
-        padding-right: 0;
-    }
+.home-page {
+    --logo-img:    url('images/homelogobg.jpg');
+    --main-img:    url('images/noneyet.png');
+    /*--sidebar-img: url('images/none.png');*/
+    /*--footer-img:  url('images/none');*/
+    --logo-tint:    0.6;
+    --main-tint:    0.9;
+    --sidebar-tint: 0.65;
+    --footer-tint:  0.65;
+}
+.links-page {
+    --logo-img:    url('images/bayerlight.png');
+    --main-img:    url('images/linksmainbg.png');
+    /*--sidebar-img: url('images/noneyet.png');*/
+    /*--footer-img:  url('images/noneyet.png');*/
+    --logo-tint:    0.65;
+    --main-tint:    0.75;
+    --main-size:   cover;
+    --main-pos:    center;
+    --main-repeat: no-repeat;
+    --sidebar-tint: 0.6;
+    --footer-tint:  0.6;
+
+    /* tiled */
+    --logo-size:   auto;
+    --logo-pos:    top left;
+    --logo-repeat: repeat;
+}
+.blog-page {
+    --logo-img:    url('images/bloglogobg.png');
+    --main-img:    url('images/noneyet.png');
+    /*--sidebar-img: url('images/noneyet.png');*/
+    /*--footer-img:  url('images/noneyet.png');*/
+    --logo-tint:    0.6;
+    --main-tint:    0.75;
+    --sidebar-tint: 0.65;
+    --footer-tint:  0.65;
 }
 
-/* -----------grain filter---------- */
+.gallery-page {
+    --logo-img:    url('images/gallerylogobg.png');
+    --main-img:    url('images/noneyet.png');
+    /*--sidebar-img: url('images/noneyet.png');*/
+    /*--footer-img:  url('images/noneyet.png');*/
+    --logo-tint:    0.6;
+    --main-tint:    0.75;
+    --sidebar-tint: 0.6;
+    --footer-tint:  0.6;
+}
+
+.guestbook-page {
+    --logo-img:    url('images/guestbooklogobg.png');
+    --main-img:    url('images/noneyet.png');
+    /*--sidebar-img: url('images/noneyet.png');*/
+    /*--footer-img:  url('images/noneyet.png');*/
+    --logo-tint:    0.6;
+    --main-tint:    0.75;
+    --sidebar-tint: 0.6;
+    --footer-tint:  0.6;
+}
+
+.sources-page {
+    --logo-img:    url('images/sourceslogobg.png');
+    --main-img:    url('images/noneyet.png');
+    /*--sidebar-img: url('images/noneyet.png');*/
+    /*--footer-img:  url('images/noneyet.png');*/
+    --logo-tint:    0.6;
+    --main-tint:    0.75;
+    --sidebar-tint: 0.6;
+    --footer-tint:  0.6;
+}
+/*grain*/
 body::after {
     content: "";
     position: fixed;
@@ -1026,5 +1085,39 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
     body::after {
         animation: none;
+    }
+}
+
+@media (max-width: 750px) {
+    .main {
+        position: relative;
+        clip-path: inset(0);
+        background-image: none;       
+    }
+
+    .main::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100lvh;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+            linear-gradient(rgba(20, 20, 19, var(--main-tint)), rgba(20, 20, 19, var(--main-tint))),
+            var(--main-img);
+        background-size: auto, var(--main-size);
+        background-position: 0 0, var(--main-pos);
+        background-repeat: no-repeat, var(--main-repeat);
+    }
+}
+
+/*fix for flickering bottom nav line on mobile*/
+@media (max-width: 750px) {
+    .divider-left {
+        position: relative;
+        z-index: 1;
     }
 }
