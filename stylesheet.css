@@ -2,6 +2,14 @@
     font-family: EBGaramond;
     src: url(EBGaramond.ttf);
 }
+@font-face {
+    font-family: w98bold;
+    src: url(w98bold.woff2);
+}
+@font-face {
+    font-family: w98regular;
+    src: url(w98regular.woff2);
+}
 
 * {
   margin: 0;
@@ -465,13 +473,12 @@ body {
     border: 1px solid #F5F3F0;
     color: #F5F3F0;
     font-family: EBGaramond;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     text-decoration: none;
-    font-size: 14px;
-    padding: 10px 28px;
+    font-size: 16px;
+    padding: 12px 28px 8px;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .link-credit:hover {
@@ -517,7 +524,6 @@ body {
 }
 
 .links-intro {
-    text-align: center;
     font-size: 17px;
     line-height: 1.8;
     opacity: 0.95;
@@ -686,6 +692,7 @@ body {
 }
 /*-----------------------footer----------------------------*/
 .footer {
+    font-family: w98regular;
     color: #F5F3F0;
     text-align: center;
 }
@@ -971,7 +978,7 @@ body {
 
 .home-page {
     --logo-img:    url('images/homelogobg.jpg');
-    --main-img:    url('images/noneyet.png');
+    --main-img:    url('images/mountain.jpeg');
     /*--sidebar-img: url('images/none.png');*/
     /*--footer-img:  url('images/none');*/
     --logo-tint:    0.6;
@@ -1089,10 +1096,9 @@ body::before {
 }
 
 @media (max-width: 750px) {
-    .main {
+    .page {
         position: relative;
         clip-path: inset(0);
-        background-image: none;       
     }
 
     .main::before {
