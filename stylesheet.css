@@ -214,6 +214,157 @@ body {
         width: 70%;
     }
 }
+/*------------------------favourite song--------------------------*/
+.song-box {
+    margin-top: 30px;
+    font-family: w98regular;
+}
+.song-label {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #a2a6e2;                   
+    margin-bottom: 12px;
+}
+.song-title {
+    font-size: 16px;
+    color: #F5F3F0;
+    letter-spacing: 1px;
+}
+.song-artist {
+    font-size: 14px;
+    font-style: italic;
+    color: #F5F3F0;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+.song-log {
+    font-style: italic;
+
+}
+.sidebar .song-box a {
+    font-size: 14px;
+    color: #a2a6e2;
+    text-decoration: underline;
+}
+@media (max-width: 750px) {
+    .song-box {
+        width: 81%;
+        margin-top: 10px;
+        padding: 5px 10px;
+        border: 1px dashed rgba(245, 243, 240, 0.5);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: baseline;
+        gap: 4px 20px;
+    }
+
+    .song-label {
+        flex-basis: 100%;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .song-artist {
+        margin-bottom: 0;
+    }
+}
+/*------------------------song log page--------------------------*/
+.song-page {
+    display: flex;
+    align-items: stretch;
+}
+.song-list {
+    flex: 1;
+    min-width: 0;
+    padding: 40px 4% 40px 6%;
+    border-right: 1px dashed rgba(245, 243, 240, 0.5);
+}
+.song-writing {
+    flex: 0 0 40%;
+    align-self: flex-start;
+    padding: 40px 6% 40px 5%;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #F5F3F0;
+}
+.song-writing p {
+    margin-bottom: 14px;
+}
+
+.song-writing p:last-child {
+    margin-bottom: 0;
+}
+
+.song-entry {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 22px 0;
+    border-bottom: 1px dashed rgba(245, 243, 240, 0.5);
+}
+
+.song-entry:last-child {
+    border-bottom: none;
+}
+
+.song-entry-date {
+    padding-top: 3px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a2a6e2;
+}
+
+.song-entry-title {
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #F5F3F0;
+}
+
+.song-entry-artist {
+    margin-top: 2px;
+    font-size: 14px;
+    font-style: italic;
+    color: #F5F3F0;
+    opacity: 0.7;
+}
+
+.song-entry-link:hover {
+    opacity: 1;
+}
+@media (min-width: 751px) {
+    .song-entry-info {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 4px 12px;
+    }
+
+    .song-entry-artist {
+        margin-top: 0;
+    }
+}
+@media (max-width: 750px) {
+    .song-page {
+        flex-direction: column;
+    }
+
+    .song-writing {
+        order: -1;
+        flex: none;
+        align-self: stretch;
+        padding: 30px 6%;
+        border-bottom: 1px dashed rgba(245, 243, 240, 0.5);
+    }
+
+    .song-list {
+        flex: none;
+        padding: 30px 6%;
+        text-align: center;
+        border-right: none;
+    }
+}
 /*------------------------diary entries--------------------------*/
 .content {
     padding: 40px 8% 40px;
@@ -423,18 +574,21 @@ body {
     margin-top: 0;
 }
 
-.latest-entry .read-more {
+.latest-entry .read-more,
+.song-writing .read-more {
     display: inline-block;
     margin-bottom: 50px;
+    margin-top: 10px;
     font-size: 14px;
     letter-spacing: 1px;
     color: #F5F3F0;
     text-decoration: underline;
-    opacity: 0.85;
+    opacity: 0.7;
     transition: opacity 0.2s ease;
 }
 
-.latest-entry .read-more:hover {
+.latest-entry .read-more:hover,
+.song-writing .read-more:hover {
     opacity: 1;
 }
 
@@ -615,6 +769,7 @@ body {
     background-color: #141413;
     border-top: 1px dashed #F5F3F0;
 }
+
 
 @media (max-width: 1300px) {
     .gallery-grid {
@@ -1003,6 +1158,16 @@ body {
     --logo-size:   auto;
     --logo-pos:    top left;
     --logo-repeat: repeat;
+}
+.songlog-page {
+    --logo-img:    url('images/songslogobg.png');
+    --main-img:    url('images/songmainbg.png');
+    /*--sidebar-img: url('images/noneyet.png');*/
+    /*--footer-img:  url('images/noneyet.png');*/
+    --logo-tint:    0.6;
+    --main-tint:    0.75;
+    --sidebar-tint: 0.6;
+    --footer-tint:  0.6;
 }
 .blog-page {
     --logo-img:    url('images/bloglogobg.png');
