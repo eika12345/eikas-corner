@@ -10,6 +10,10 @@
     font-family: w98regular;
     src: url(w98regular.woff2);
 }
+@font-face {
+    font-family: manga;
+    src: url(mangat.ttf);
+}
 
 * {
   margin: 0;
@@ -374,6 +378,254 @@ body {
 
 .song-entry.multi .song-entry-artist {
     margin-top: 6px;
+}
+/*------------------------favourite manga--------------------------*/
+.manga-box {
+    margin-top: 30px;
+    font-family: w98regular;
+}
+.manga-label {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #ee7c78;
+    margin-bottom: 12px;
+}
+.manga-title {
+    font-size: 16px;
+    color: #F5F3F0;
+    letter-spacing: 1px;
+    font-family: manga;
+}
+.manga-author {
+    font-size: 14px;
+    font-style: italic;
+    color: #F5F3F0;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+.manga-log {
+    font-style: italic;
+}
+.sidebar .manga-box a {
+    font-size: 14px;
+    color: #ee7c78;
+    text-decoration: underline;
+}
+@media (max-width: 750px) {
+    .manga-box {
+        order: 1;
+        width: 81%;
+        margin-top: 10px;
+        padding: 5px 10px;
+        border: 1px dashed rgba(245, 243, 240, 0.5);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: baseline;
+        gap: 4px 20px;
+        text-align: center;
+    }
+
+    .manga-label {
+        flex-basis: 100%;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .manga-author {
+        margin-bottom: 0;
+    }
+}
+/*------------------------manga log page (flipped song log)--------------------------*/
+.mangalog-page {
+    display: flex;
+    align-items: stretch;
+}
+
+/* writing now sits on the LEFT, list on the RIGHT */
+.mangalog-writing {
+    flex: 0 0 40%;
+    align-self: flex-start;
+    padding: 40px 5% 40px 6%;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #F5F3F0;
+}
+.mangalog-list {
+    flex: 1;
+    min-width: 0;
+    padding: 40px 6% 40px 4%;
+    border-left: 1px dashed rgba(245, 243, 240, 0.5);
+}
+
+.mangalog-writing p {
+    margin-bottom: 14px;
+}
+.mangalog-writing p:last-child {
+    margin-bottom: 0;
+}
+
+.mangalog-writing .read-more {
+    display: inline-block;
+    margin-bottom: 50px;
+    margin-top: 10px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #F5F3F0;
+    text-decoration: underline;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+.mangalog-writing .read-more:hover {
+    opacity: 1;
+}
+
+.mangalog-entry {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 22px 0;
+    border-bottom: 1px dashed rgba(245, 243, 240, 0.5);
+    text-align: left;
+}
+.mangalog-entry:last-child {
+    border-bottom: none;
+}
+.mangalog-entry > p + p {
+    margin-top: 12px;
+}
+
+.mangalog-entry-date {
+    padding-top: 3px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ee7c78;
+}
+.mangalog-entry-title {
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #F5F3F0;
+}
+.mangalog-entry-author {
+    margin-top: 2px;
+    font-size: 14px;
+    font-style: italic;
+    color: #F5F3F0;
+    opacity: 0.7;
+}
+
+.mangalog-entry.multi .mangalog-entry-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+.mangalog-entry.multi .mangalog-entry-author {
+    margin-top: 6px;
+}
+.spoiler {
+    position: relative;
+    margin-top: 12px;
+}
+
+.spoiler-content {
+    filter: blur(8px);
+    user-select: none;
+    pointer-events: none;
+    transition: filter 0.3s ease;
+}
+
+.spoiler-content p + p {
+    margin-top: 12px;
+}
+
+.spoiler-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    text-align: center;
+    background: rgba(20, 20, 19, 0.55);
+    border: 1px dashed rgba(245, 243, 240, 0.5);
+}
+
+.spoiler-warning {
+    font-family: w98bold;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #ee7c78;
+}
+
+.spoiler-note {
+    font-size: 14px;
+    color: #F5F3F0;
+    opacity: 0.8;
+}
+
+.spoiler-btn {
+    font-family: w98regular;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 6px 16px;
+    color: #F5F3F0;
+    background: transparent;
+    border: 1px dashed rgba(245, 243, 240, 0.7);
+    cursor: pointer;
+    transition: background 0.1s ease;
+}
+
+.spoiler-btn:hover {
+    background: rgba(245, 243, 240, 0.15);
+}
+
+.spoiler.revealed .spoiler-content {
+    filter: none;
+    user-select: auto;
+    pointer-events: auto;
+}
+
+.spoiler.revealed .spoiler-overlay {
+    display: none;
+}
+
+.spoiler + p {
+    margin-top: 12px;
+}
+
+@media (min-width: 751px) {
+    .mangalog-entry-info {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 4px 12px;
+    }
+    .mangalog-entry-author {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 750px) {
+    .mangalog-page {
+        flex-direction: column;
+    }
+    .mangalog-writing {
+        order: -1;
+        flex: none;
+        align-self: stretch;
+        padding: 30px 6%;
+        border-bottom: 1px dashed rgba(245, 243, 240, 0.5);
+    }
+    .mangalog-list {
+        flex: none;
+        padding: 30px 6%;
+        text-align: center;
+        border-left: none;
+    }
 }
 /*------------------------diary entries--------------------------*/
 .content {
@@ -812,6 +1064,10 @@ body {
     }
 
     .sidebar-right {
+    display: contents;
+    }
+
+    .sidebar-right > a {
         display: none;
     }
 
@@ -1172,6 +1428,16 @@ body {
 .songlog-page {
     --logo-img:    url('images/songslogobg.png');
     --main-img:    url('images/songmainbg.png');
+    /*--sidebar-img: url('images/noneyet.png');*/
+    /*--footer-img:  url('images/noneyet.png');*/
+    --logo-tint:    0.6;
+    --main-tint:    0.75;
+    --sidebar-tint: 0.6;
+    --footer-tint:  0.6;
+}
+.manga-page {
+    --logo-img:    url('images/mangalogobg.png');
+    --main-img:    url('images/mangamainbg.png');
     /*--sidebar-img: url('images/noneyet.png');*/
     /*--footer-img:  url('images/noneyet.png');*/
     --logo-tint:    0.6;
