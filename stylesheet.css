@@ -365,6 +365,16 @@ body {
         border-right: none;
     }
 }
+.song-entry.multi .song-entry-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.song-entry.multi .song-entry-artist {
+    margin-top: 6px;
+}
 /*------------------------diary entries--------------------------*/
 .content {
     padding: 40px 8% 40px;

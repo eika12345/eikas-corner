@@ -6,9 +6,9 @@
     box.className = 'song-box';
     box.innerHTML = `
         <p class="song-label">My favourite song rn 🎵</p>
-        <p class="song-title">Life We Live</p>
-        <p class="song-artist">Project Pat</p>
-        <a href="songlog.html" class="song-log">log!</a>
+        <p class="song-title">Summer Girl</p>
+        <p class="song-artist">Jamiroquai</p>
+        <a href="songlog.html" class="song-log">music corner!!</a>
     `;
     nav.appendChild(box);
 })();
