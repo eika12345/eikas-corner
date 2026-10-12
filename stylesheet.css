@@ -998,9 +998,8 @@ body {
 }
 
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    column-count: 3;
+    column-gap: 24px;
 }
 
 .gallery-item {
@@ -1009,6 +1008,8 @@ body {
     border: 1px solid #F5F3F0;
     opacity: 0.9;
     transition: opacity 0.2s ease;
+    break-inside: avoid;
+    margin-bottom: 24px;
 }
 
 .gallery-item:hover {
@@ -1018,8 +1019,7 @@ body {
 .gallery-item img {
     display: block;
     width: 100%;
-    height: 400px;
-    object-fit: cover;
+    height: auto;
 }
 
 .gallery-item figcaption {
@@ -1035,17 +1035,13 @@ body {
 
 @media (max-width: 1300px) {
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+        column-count: 2;
     }
 }
 
 @media (max-width: 900px) {
     .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery-item img {
-        height: 400px;
+        column-count: 1;
     }
 }
 
@@ -1399,11 +1395,14 @@ body {
 
 .home-page {
     --logo-img:    url('images/homelogobg.jpg');
-    --main-img:    url('images/mountain.jpeg');
+    --main-img:    url('images/homemainbg.png');
+    --main-size:   cover;
+    --main-pos:    center 60%;
+    --main-repeat: no-repeat;
     /*--sidebar-img: url('images/none.png');*/
     /*--footer-img:  url('images/none');*/
     --logo-tint:    0.6;
-    --main-tint:    0.9;
+    --main-tint:    0.75;
     --sidebar-tint: 0.65;
     --footer-tint:  0.65;
 }
