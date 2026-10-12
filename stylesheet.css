@@ -32,7 +32,7 @@ body {
     font-family: EBGaramond;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
+    overflow-x: clip; /* was hidden */
 }
 
 .page-fade {
@@ -161,7 +161,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 60px 40px;
+    padding: 25px 30px;
     width: 220px;
     flex: 0 0 220px;
 }
@@ -212,12 +212,28 @@ body {
     height: auto;
     opacity: 0.9;
 }
+@media (min-width: 751px) {
+      .page {
+        padding: 0 220px;
+    }
 
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 220px;
+        overflow-y: auto;
+    }
+
+    .sidebar-left { left: 0; }
+    .sidebar-right { right: 0; }
+}
 @media (max-width: 750px) {
     .about-divider {
         width: 70%;
     }
 }
+
 /*------------------------favourite song--------------------------*/
 .song-box {
     margin-top: 30px;
@@ -441,8 +457,6 @@ body {
     display: flex;
     align-items: stretch;
 }
-
-/* writing now sits on the LEFT, list on the RIGHT */
 .mangalog-writing {
     flex: 0 0 40%;
     align-self: flex-start;
@@ -1107,6 +1121,7 @@ body {
         font-size: 16px;
     }
 }
+
 /*-----------------------footer----------------------------*/
 .footer {
     font-family: w98regular;
