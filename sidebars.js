@@ -23,7 +23,7 @@
         <p class="song-label">My favourite song rn 🎵</p>
         <p class="song-title">Halve-life</p>
         <p class="song-artist">Rav</p>
-        <a href="songlog.html" class="song-log">music corner!!</a>
+        <a href="songlog.html" class="song-log">!!music corner!!</a>
     `;
 
     var manga = document.createElement('div');
@@ -32,7 +32,7 @@
         <p class="manga-label">Manga reading(s)</p>
         <p class="manga-title">Hellsing</p>
         <p class="manga-author">Kouta Hirano</p>
-        <a href="manga.html" class="manga-log">manga corner!!</a>
+        <a href="manga.html" class="manga-log">!!manga corner!!</a>
     `;
 
     left.appendChild(song);

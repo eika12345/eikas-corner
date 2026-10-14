@@ -297,7 +297,7 @@ body {
 .song-list {
     flex: 1;
     min-width: 0;
-    padding: 40px 4% 40px 6%;
+    padding: 10px 4% 40px 4%;
     border-right: 1px dashed rgba(245, 243, 240, 0.5);
 }
 .song-writing {
@@ -388,7 +388,7 @@ body {
 
     .song-list {
         flex: none;
-        padding: 30px 6%;
+        padding: 10px 6%;
         text-align: center;
         border-right: none;
     }
@@ -649,7 +649,6 @@ body {
         border-left: none;
     }
 }
-
 .bounce-letter {
     display: inline-block;
     white-space: pre;
