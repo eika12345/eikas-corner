@@ -98,9 +98,9 @@
                     <figcaption>5am mountain</figcaption>
                 </figure>
 
-                <figure class="gallery-item" id="eikas-den">
-                    <img src="images/eikasden.png" alt="self plug eikas den">
-                    <figcaption>self plug eikas</figcaption>
+                <figure class="gallery-item" id="sludge">
+                    <img src="images/sludge.png" alt="straight goop">
+                    <a href="toby.html" style="color: #afff9f; font-family: w98regular;" ><figcaption>straight goop</figcaption></a>
 
                 <!--<figure class="gallery-item">
                     <img src="images/dagashi.jpeg" alt="gallery photo">
@@ -144,6 +144,12 @@
 
 <script src="sidebars.js"></script>
 
-
+<script>
+window.addEventListener('load', () => {
+    if (location.hash) {
+        document.querySelector(location.hash)?.scrollIntoView();
+    }
+});
+</script>
 </body>
 </html>
