@@ -327,6 +327,14 @@ body {
 .song-entry:last-child {
     border-bottom: none;
 }
+.song-entry.multi {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.song-entry.multi.multi-last {
+    border-bottom: 1px dashed rgba(245, 243, 240, 0.5);
+    padding-bottom: 22px;
+}
 
 .song-entry-date {
     padding-top: 3px;
@@ -640,6 +648,24 @@ body {
         text-align: center;
         border-left: none;
     }
+}
+
+.bounce-letter {
+    display: inline-block;
+    white-space: pre;
+    text-decoration: underline;
+    animation: letter-bounce 6.5s ease-in-out infinite;
+}
+
+@keyframes letter-bounce {
+    0%, 7.4%, 100% { transform: translateY(0); animation-timing-function: ease-out; }
+    2.2%           { transform: translateY(-8px); animation-timing-function: ease-in; }
+    4.4%           { transform: translateY(0); animation-timing-function: ease-out; }
+    5.9%           { transform: translateY(-1px); animation-timing-function: ease-in; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bounce-letter { animation: none; }
 }
 /*------------------------diary entries--------------------------*/
 .content {
@@ -1582,3 +1608,4 @@ body::before {
         z-index: 1;
     }
 }
+
