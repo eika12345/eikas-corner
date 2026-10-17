@@ -1425,6 +1425,7 @@ body {
     background-color: #000;
     border: 2px solid white;
     padding: 10px;
+    opacity: 0.85;
 }
 
 @media (max-width: 750px) {
