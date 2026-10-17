@@ -1396,6 +1396,43 @@ body {
 .gb-entry .entry-title {
     font-size: 20px;
 }
+/* -----------------------------moon phase section--------------------------- */
+.moon-section {
+    min-height: 380px;
+    margin: 40px calc(-100% * 8 / 84) -40px;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px dashed rgba(245, 243, 240, 0.5);
+    background-image:
+    linear-gradient(rgba(20, 20, 19, var(--moon-tint)), rgba(20, 20, 19, var(--moon-tint))),
+    var(--moon-img);
+    background-size: auto, var(--moon-size);
+    background-position: 0 0, var(--moon-pos);
+    background-repeat: no-repeat, var(--moon-repeat);
+    gap: 40px;
+}
+.moon-section table {
+    flex: 0 0 auto;
+}
+
+.moon-text {
+    max-width: 320px;
+    font-size: 17px;
+    color: #F5F3F0;
+    text-align: left;
+    background-color: #000;
+    border: 2px solid white;
+    padding: 10px;
+}
+
+@media (max-width: 750px) {
+    .moon-section {
+        margin: 30px calc(-100% * 6 / 88) -30px;
+        gap: 10px;
+    }
+}
 /*=========================================================BACKGROUNDS==========================================================*/
 
 :root {
@@ -1423,6 +1460,12 @@ body {
     --footer-size:   auto;
     --footer-pos:    top left;
     --footer-repeat: repeat;
+
+    --moon-img:      url('images/noneyet.png');
+    --moon-tint:     0.6;
+    --moon-size:     cover;
+    --moon-pos:      center;
+    --moon-repeat:   no-repeat;
 }
 
 .logo {
@@ -1483,6 +1526,12 @@ body {
     --main-tint:    0.75;
     --sidebar-tint: 0.65;
     --footer-tint:  0.65;
+
+    --moon-img:     url('images/moonbg.gif');
+    --moon-tint:    0.2;
+    --moon-size:    auto;
+    --moon-pos:     center;
+    --moon-repeat:  repeat;
 }
 .links-page {
     --logo-img:    url('images/bayerlight.png');
@@ -1659,4 +1708,3 @@ body::before {
         z-index: 1;
     }
 }
-
