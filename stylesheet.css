@@ -65,7 +65,7 @@ body {
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .logo a {
         width: 90%;
     }
@@ -91,7 +91,7 @@ body {
     transform: translate(-50%, -50%) rotate(45deg);
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .vertical-separator::before {
         display: none;
     }
@@ -212,7 +212,7 @@ body {
     height: auto;
     opacity: 0.9;
 }
-@media (min-width: 751px) {
+@media (min-width: 901px) {
       .page {
         padding: 0 220px;
     }
@@ -228,7 +228,7 @@ body {
     .sidebar-left { left: 0; }
     .sidebar-right { right: 0; }
 }
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .about-divider {
         width: 70%;
     }
@@ -266,7 +266,7 @@ body {
     color: #a2a6e2;
     text-decoration: underline;
 }
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .song-box {
         width: 81%;
         margin-top: 10px;
@@ -361,7 +361,7 @@ body {
 .song-entry-link:hover {
     opacity: 1;
 }
-@media (min-width: 751px) {
+@media (min-width: 901px) {
     .song-entry-info {
         display: flex;
         flex-wrap: wrap;
@@ -373,7 +373,7 @@ body {
         margin-top: 0;
     }
 }
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .song-page {
         flex-direction: column;
     }
@@ -435,7 +435,7 @@ body {
     color: #ee7c78;
     text-decoration: underline;
 }
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .manga-box {
         order: 1;
         width: 81%;
@@ -619,7 +619,7 @@ body {
     margin-top: 12px;
 }
 
-@media (min-width: 751px) {
+@media (min-width: 901px) {
     .mangalog-entry-info {
         display: flex;
         flex-wrap: wrap;
@@ -631,7 +631,7 @@ body {
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .mangalog-page {
         flex-direction: column;
     }
@@ -907,7 +907,7 @@ body {
     opacity: 1;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .home-content {
         max-width: 100%;
     }
@@ -952,7 +952,7 @@ body {
     margin-top: 10px;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .credit-section {
         position: relative;
         border-top: none;
@@ -1022,7 +1022,7 @@ body {
     opacity: 0.9;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .site-title {
         font-size: 22px;
     }
@@ -1084,7 +1084,7 @@ body {
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .page {
         flex-direction: row;
         flex-wrap: wrap;
@@ -1196,7 +1196,7 @@ body {
     margin: 20px 0;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .footer-content {
         padding: 25px 6% 20px;
     }
@@ -1239,7 +1239,7 @@ body {
     opacity: 1;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .sources-content {
         padding: 30px 6% 40px;
     }
@@ -1265,7 +1265,7 @@ body {
     margin-bottom: 0;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .toby-gallery {
         grid-template-columns: 1fr;
     }
@@ -1316,7 +1316,7 @@ body {
     transform: scaleX(-1);
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .guestbook-flower {
         display: none;
     }
@@ -1396,7 +1396,18 @@ body {
 .gb-entry .entry-title {
     font-size: 20px;
 }
-/* -----------------------------moon phase section--------------------------- */
+/* -----------------------------THE MOON THE EARTH AND HELLLL--------------------------- */
+.moon-section,
+.earth-section,
+.hell-section {
+    font-family: w98regular;
+}
+.moon-text,
+.earth-text,
+.hell-text {
+    font-size: 16px;
+}
+
 .moon-section {
     min-height: 380px;
     margin: 40px calc(-100% * 8 / 84) -40px;
@@ -1419,19 +1430,131 @@ body {
 
 .moon-text {
     max-width: 320px;
-    font-size: 17px;
-    color: #F5F3F0;
+    color: #d5d9f0;
     text-align: left;
     background-color: #000;
-    border: 2px solid white;
+    border: 2px solid #d5d9f0;
     padding: 10px;
     opacity: 0.85;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .moon-section {
         margin: 30px calc(-100% * 6 / 88) -30px;
         gap: 10px;
+    }
+}
+/* -----------------------------earth section--------------------------- */
+.earth-section {
+    min-height: 380px;
+    margin: 40px calc(-100% * 8 / 84) -40px;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px dashed rgba(245, 243, 240, 0.5);
+    background-image:
+    linear-gradient(rgba(20, 20, 19, var(--earth-tint)), rgba(20, 20, 19, var(--earth-tint))),
+    var(--earth-img);
+    background-size: auto, var(--earth-size);
+    background-position: 0 0, var(--earth-pos);
+    background-repeat: no-repeat, var(--earth-repeat);
+    gap: 40px;
+}
+.earth-section table {
+    flex: 0 0 auto;
+}
+
+.earth-text {
+    max-width: 320px;
+    color: #d8fd7a;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid #d8fd7a;
+    padding: 10px;
+    opacity: 0.85;
+    position: relative;
+    left: -80px;
+}
+
+.earth-heading {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-family: w98bold;
+}
+.earth-text p {
+    margin: 0 0 8px;
+}
+
+@media (max-width: 900px) {
+    .earth-section {
+        margin: 30px calc(-100% * 6 / 88) -30px;
+        gap: 10px;
+    }
+}
+/* -----------------------------hell section--------------------------- */
+.hell-section {
+    min-height: 380px;
+    margin: 40px calc(-100% * 8 / 84) -40px;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px dashed rgba(245, 243, 240, 0.5);
+    background-image:
+    linear-gradient(rgba(20, 20, 19, var(--hell-tint)), rgba(20, 20, 19, var(--hell-tint))),
+    var(--hell-img);
+    background-size: auto, var(--hell-size);
+    background-position: 0 0, var(--hell-pos);
+    background-repeat: no-repeat, var(--hell-repeat);
+    gap: 40px;
+}
+.hell-section table {
+    flex: 0 0 auto;
+}
+
+.hell-text {
+    max-width: 320px;
+    color: #ff7b77;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ff7b77;
+    padding: 10px;
+    opacity: 0.85;
+    position: relative;
+    left: 80px;   
+}
+.hell-heading {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-family: w98bold;
+}
+.hell-text p {
+    margin: 0 0 8px;
+}
+.hell-buttons {
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 88px);   /* 2 columns, rows fill automatically */
+    gap: 6px;
+}
+
+@media (max-width: 900px) {
+    .hell-buttons {
+        grid-template-columns: 88px;           /* 1 column */
+    }
+}
+
+@media (max-width: 900px) {
+    .hell-section {
+        margin: 30px calc(-100% * 6 / 88) -30px;
+        gap: 10px;
+    }
+}
+@media (max-width: 1200px) {
+    .earth-text,
+    .hell-text {
+        left: 0;
     }
 }
 /*=========================================================BACKGROUNDS==========================================================*/
@@ -1467,6 +1590,18 @@ body {
     --moon-size:     cover;
     --moon-pos:      center;
     --moon-repeat:   no-repeat;
+
+    --earth-img:     url('images/noneyet.png');
+    --earth-tint:    0.6;
+    --earth-size:    cover;
+    --earth-pos:     center;
+    --earth-repeat:  no-repeat;
+
+    --hell-img:      url('images/noneyet.png');
+    --hell-tint:     0.6;
+    --hell-size:     cover;
+    --hell-pos:      center;
+    --hell-repeat:   no-repeat;
 }
 
 .logo {
@@ -1503,7 +1638,7 @@ body {
 }
 
 /* no bg on sidebars mobile */
-@media (min-width: 751px) {
+@media (min-width: 901px) {
     .sidebar-left,
     .sidebar-right {
         background-image:
@@ -1528,11 +1663,23 @@ body {
     --sidebar-tint: 0.65;
     --footer-tint:  0.65;
 
-    --moon-img:     url('images/moonbg.gif');
+    --moon-img:     url('images/moonbg.png');
     --moon-tint:    0.2;
-    --moon-size:    auto;
-    --moon-pos:     center;
-    --moon-repeat:  repeat;
+    --moon-size:    cover;
+    --moon-pos:     center 20%;
+    --moon-repeat:  no-repeat;
+
+    --earth-img:    url('images/earthbg.png');
+    --earth-tint:   0.2;
+    --earth-size:   cover;
+    --earth-pos:    center 0;
+    --earth-repeat: no-repeat;
+
+    --hell-img:     url('images/hellbg.png');
+    --hell-tint:    0.2;
+    --hell-size:    cover;
+    --hell-pos:     center 40%;
+    --hell-repeat:  no-repeat;
 }
 .links-page {
     --logo-img:    url('images/bayerlight.png');
@@ -1677,7 +1824,7 @@ body::before {
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .page {
         position: relative;
         clip-path: inset(0);
@@ -1703,7 +1850,7 @@ body::before {
 }
 
 /*fix for flickering bottom nav line on mobile*/
-@media (max-width: 750px) {
+@media (max-width: 900px) {
     .divider-left {
         position: relative;
         z-index: 1;
