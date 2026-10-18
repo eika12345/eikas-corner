@@ -149,6 +149,13 @@ body {
         padding: 10% 5%;
     }
 }
+.home-page .hero {
+    flex: 0 0 auto;        /* stop it from stretching */
+    padding: 30px 5% 20px; /* top, left/right, bottom in px instead of % */
+}
+.home-page .content {
+    padding-top: 10px;
+}
 
 
 .page {
