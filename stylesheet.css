@@ -862,6 +862,7 @@ body {
     font-weight: normal;
     max-width: 650px;
     margin: 0 auto;
+    text-shadow: -5px 3px 2px rgba(0, 0, 0, 0.8);
 }
 
 .gate {
@@ -889,11 +890,13 @@ body {
     padding: 13px 26px 11px 28px;
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease;
+    text-shadow: -3px 2px 2px rgba(0, 0, 0, 0.8);
 }
 
 .continue-btn:hover {
     background-color: #F5F3F0;
     color: #141413;
+    text-shadow: none;
 }
 
 /*---------------------home page-------------------------*/
