@@ -14,6 +14,10 @@
     font-family: manga;
     src: url(mangat.ttf);
 }
+@font-face {
+    font-family: gothik;
+    src: url(GothikSteel.ttf);
+}
 
 * {
   margin: 0;
@@ -810,9 +814,10 @@ body {
 }
 
 .splash h1 {
-    letter-spacing: 2px;
+    font-family: w98regular;
+    letter-spacing: 1px;
     font-size: 22px;
-    opacity: 0.85;
+    opacity: 0.95;
     font-weight: normal;
     max-width: 650px;
     margin: 0 auto;
@@ -836,11 +841,11 @@ body {
     background-color: transparent;
     border: 1px solid #F5F3F0;
     color: #F5F3F0;
-    font-family: EBGaramond;
+    font-family: w98regular;
     letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 14px;
-    padding: 10px 28px;
+    padding: 13px 26px 11px 28px;
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
