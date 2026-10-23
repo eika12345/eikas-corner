@@ -718,7 +718,7 @@ body {
 }
 
 .entry-date {
-    font-size: 13px;
+    font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #a2a6e2;
@@ -766,10 +766,10 @@ body {
 }
 
 .entry-mood {
-    font-size: 14px;
+    font-size: 16px;
     font-style: italic;
-    opacity: 0.6;
     margin: 18px 0 10px;
+    color: #a2a6e2;
 }
 
 .typewriter-cursor {
@@ -794,10 +794,51 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: linear-gradient(to bottom, rgba(20, 20, 19, 0.9) 0%, rgba(20, 20, 19, 0.25) 800px, rgba(20, 20, 19, 0.25) 100%), url('images/seabg.gif');
+    background-image: linear-gradient(to bottom, rgba(20, 20, 19, 0.9) 0%, rgba(20, 20, 19, 0.25) 800px, rgba(20, 20, 19, 0.25) 100%), var(--splash-bg, url('images/seabg.gif'));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+@media (max-width: 900px) {
+    .splash-body {
+        background-position: 70% center;
+    }
+}
+
+.corner-btns {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.bg-btn,
+.skip-btn {
+    background-color: rgba(20, 20, 19, 0.5);
+    border: 1px solid #F5F3F0;
+    color: #F5F3F0;
+    font-family: w98regular;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    font-size: 12px;
+    padding: 9px 16px 7px;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.bg-btn:hover,
+.skip-btn:hover {
+    opacity: 1;
+    background-color: #F5F3F0;
+    color: #141413;
 }
 
 .splash-wrap {

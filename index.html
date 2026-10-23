@@ -30,6 +30,12 @@
 
 
     <div class="page-fade">
+
+        <div class="corner-btns">
+            <a id="skip-btn" class="skip-btn" href="home.html">Skip</a>
+            <button id="bg-btn" class="bg-btn" type="button">Change background</button>
+        </div>
+
         <div class="splash-wrap">
             <div class="splash">
                 <h1 id="typewriter"><span id="typewriter-text"></span></h1>
@@ -39,6 +45,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 
 <script>
@@ -91,6 +98,50 @@
             });
         }
     })();
+
+    (function () {
+    var backgrounds = [
+        "images/dreamcorebg.png",
+        "images/stuffsbg.png",
+        
+    ];
+
+    var btn = document.getElementById('bg-btn');
+    if (!btn) return;
+
+    var index = 0;
+    try {
+        var saved = parseInt(localStorage.getItem('splashBg'), 10);
+        if (saved >= 0 && saved < backgrounds.length) index = saved;
+    } catch (e) {}
+
+    function apply() {
+        document.body.style.setProperty('--splash-bg', "url('" + backgrounds[index] + "')");
+        try { localStorage.setItem('splashBg', index); } catch (e) {}
+    }
+
+    apply();
+
+    btn.addEventListener('click', function () {
+        index = (index + 1) % backgrounds.length;
+        apply();
+    });
+})();
+
+(function () {
+    var skipBtn = document.getElementById('skip-btn');
+    if (!skipBtn) return;
+
+    skipBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var pageFade = document.querySelector('.page-fade');
+        if (pageFade) pageFade.classList.add('fade-out');
+        try { sessionStorage.setItem('fadeTransition', '1'); } catch (err) {}
+        setTimeout(function () {
+            window.location.href = 'home.html';
+        }, 400);
+    });
+})();
 </script>
 
 
