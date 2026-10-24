@@ -834,8 +834,17 @@ body {
     transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
 }
 
-.bg-btn:hover,
-.skip-btn:hover {
+@media (hover: hover) and (pointer: fine) {
+    .bg-btn:hover,
+    .skip-btn:hover {
+        opacity: 1;
+        background-color: #F5F3F0;
+        color: #141413;
+    }
+}
+
+.bg-btn:active,
+.skip-btn:active {
     opacity: 1;
     background-color: #F5F3F0;
     color: #141413;
@@ -889,7 +898,6 @@ body {
     font-size: 14px;
     padding: 13px 26px 11px 28px;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
     text-shadow: -3px 2px 2px rgba(0, 0, 0, 0.8);
 }
 
@@ -1008,6 +1016,22 @@ body {
     margin-top: 10px;
 }
 
+.link-credit.has-bg {
+    --btn-img: url('images/5ammountain.png');
+    --btn-tint: rgba(20, 20, 19, 0.6);
+    background-image: linear-gradient(var(--btn-tint), var(--btn-tint)), var(--btn-img);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .link-credit.has-bg:hover {
+        --btn-tint: rgba(245, 243, 240, 0.85);
+        color: #141413;
+    }
+}
+
 @media (max-width: 900px) {
     .credit-section {
         position: relative;
@@ -1032,13 +1056,6 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
-}
-
-.links-intro {
-    font-size: 17px;
-    line-height: 1.8;
-    opacity: 0.95;
-    margin-bottom: 40px;
 }
 
 .site-entry {
@@ -1326,6 +1343,7 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
 .toby-page .hero h1 {
     text-shadow: 0 0 12px rgba(245, 243, 240, 0.5);
     animation: toby-glow 3s ease-in-out infinite alternate;
