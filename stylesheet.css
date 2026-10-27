@@ -175,6 +175,7 @@ body {
     padding: 25px 30px;
     width: 220px;
     flex: 0 0 220px;
+    font-family: w98regular;
 }
 
 .sidebar a {
@@ -789,7 +790,6 @@ body {
     50.01%, 100% { opacity: 0; }
 }
 
-/*------------------index page ------------------------*/
 .splash-body {
     display: flex;
     flex-direction: column;
@@ -1629,6 +1629,43 @@ body {
     .earth-text,
     .hell-text {
         left: 0;
+    }
+}
+/* =------------------- jungle page --------------------- */
+.jungle-page {
+    background-image:
+        linear-gradient(rgba(20, 20, 19, 0.6), rgba(20, 20, 19, 0.6)),
+        url('images/jungle.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.jungle-page {
+    --logo-tint: 0;
+}
+@media (min-width: 901px) {
+    .jungle-page {
+        background-position: center 80%;
+    }
+}
+.corner-clover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: auto;
+    z-index: -1;
+    pointer-events: none;
+    image-rendering: pixelated;
+
+    /* only if you still want it rotated 90deg clockwise */
+    transform-origin: top left;
+}
+
+@media (max-width: 900px) {
+    .corner-clover {
+        width: 140px;
     }
 }
 /*=========================================================BACKGROUNDS==========================================================*/
