@@ -1657,17 +1657,108 @@ body {
     height: auto;
     z-index: -1;
     pointer-events: none;
-    image-rendering: pixelated;
-
-    /* only if you still want it rotated 90deg clockwise */
     transform-origin: top left;
+}
+.corner-tree {
+    position: fixed;
+    bottom: 0;
+    right: -200px;
+    height: 130vh;
+    width: auto;
+    z-index: -1;
+    pointer-events: none;
+}
+.corner-vines {
+    position: fixed;
+    bottom: 0;
+    left: -350px;
+    height:  90vh;
+    z-index: -1;
+    pointer-events: none;
+}
+.bottom-grass {
+    position: fixed;
+    bottom: -220px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@media (max-width: 1300px) {
+    .bottom-grass {
+        bottom: -100px;
+    }
 }
 
 @media (max-width: 900px) {
     .corner-clover {
         width: 140px;
     }
+    .corner-vines {
+        left: -400px;
+    }
+    .corner-tree {
+        height: 50vh;
+        right: -50px;
+    }
+    .bottom-grass {
+        bottom: -100px;
+    }
 }
+
+@media (max-width: 400px) {
+    .corner-clover {
+        width: 70px;
+    }
+    .corner-tree {
+        right: -150px;
+    }
+    .corner-vines {
+        left: -450px;
+    }
+    .bottom-grass {
+        bottom: 0;
+    }
+}
+
+.jungle-text {
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 6% 40px;
+    text-align: center;
+}
+
+.jungle-page h1 {
+    margin-bottom: 18px;
+    font-family: w98regular;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 1.4;
+    letter-spacing: 2px;
+    color: #e6f3c8;
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.9),
+        0 0 22px rgba(216, 253, 122, 0.35);
+}
+
+.jungle-page h1:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+    .jungle-text {
+        padding: 0 8% 30px;
+    }
+
+    .jungle-page h1 {
+        font-size: 24px;
+        letter-spacing: 1.5px;
+    }
+}
+
 /*=========================================================BACKGROUNDS==========================================================*/
 
 :root {
