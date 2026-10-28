@@ -34,10 +34,30 @@
     <img class="bottom-grass" src="images/grass.png" alt="">
 
     <div class="jungle-text">
-        <h1>You wake up, and peer over the bushes.</h1>
-        <h1>Once a bustling city, now turned into overgrown ruins..</h1>
-    </div>
+    <h1>You wake up, and peer over the bushes.</h1>
+    <h1>Once a bustling city, now turned into overgrown ruins..</h1>
+    <a href="next.html" class="walk-btn">Walk through</a>
+</div>
 
+<script>
+    const walkBtn = document.querySelector('.walk-btn');
 
+walkBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (document.body.classList.contains('leaving')) return;
+
+    document.body.classList.add('leaving');
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setTimeout(() => {
+        window.location.href = walkBtn.href;
+    }, reduce ? 0 : 1100);
+});
+
+// reset if the user comes back with the browser's back button
+window.addEventListener('pageshow', (e) => {
+    if (e.persisted) document.body.classList.remove('leaving');
+});
+</script>
 </body>
 </html>
