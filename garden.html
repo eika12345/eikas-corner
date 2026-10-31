@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE GARDEN</title>
+    <meta name="description" content="THE GARDEN">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Eikas Corner | Garden">
+    <meta property="og:description" content="THE GARDEN">
+    <meta property="og:image" content="https://eikascorner.neocities.org/images/eikascornerlogo.png">
+    <meta property="og:url" content="https://eikascorner.neocities.org/garden.html">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Eikas Corner | Garden">
+    <meta name="twitter:description" content="THE GARDEN">
+    <meta name="twitter:image" content="https://eikascorner.neocities.org/images/eikascornerlogo.png">
+
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body class="garden-page">
+
+    <div class="garden-text">
+        <h1 class="italic">You find an opening in a damaged building, and step through the rubble.</h1>
+        <h1 class="italic">The walls are wet, and the air smells of stale earth. It’s a familiar sort of smell, like somewhere you haven’t been in years.</h1>
+        <h1 class="italic">The door catches your eye. It looks strangely out of place, seemingly unaffected by the decay around it.</h1>
+        <!--<a href="next.html" class="walk-btn">Continue</a>-->
+    </div>
+
+<script>
+    (function () {
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce) return;
+
+        var typeSpeed = 20;
+        var pauseBetween = 900;
+        var sentencePause = 600;
+        
+
+        var heads = document.querySelectorAll('.garden-text h1');
+        var btn = document.querySelector('.garden-text .walk-btn');
+        var lines = [];
+
+        heads.forEach(function (h) {
+            var full = h.textContent;
+            var typed = document.createElement('span');
+            var rest = document.createElement('span');
+            rest.className = 'tw-rest';
+            rest.textContent = full;
+            h.setAttribute('aria-label', full);
+            h.textContent = '';
+            h.appendChild(typed);
+            h.appendChild(rest);
+            lines.push({ full: full, typed: typed, rest: rest });
+        });
+
+        if (btn) btn.classList.add('tw-hidden');
+
+        var lineIndex = 0;
+        var charIndex = 0;
+
+        function typeLine() {
+            var line = lines[lineIndex];
+                if (charIndex <= line.full.length) {
+                    line.typed.textContent = line.full.slice(0, charIndex);
+                    line.rest.textContent = line.full.slice(charIndex);
+
+                    var delay = typeSpeed;
+                    var last = line.full.charAt(charIndex - 1);
+                    var next = line.full.charAt(charIndex);
+                    if (/[.!?]/.test(last) && next === ' ') {
+                        delay = sentencePause;
+                    }
+
+                    charIndex++;
+                    setTimeout(typeLine, delay);
+                } else if (lineIndex < lines.length - 1) {
+                    
+                    setTimeout(function () {
+                        lineIndex++;
+                        charIndex = 0;
+                        typeLine();
+                    }, pauseBetween);
+
+                } else if (btn) {
+                    btn.classList.remove('tw-hidden');
+                    btn.classList.add('tw-show');
+            }
+        }
+
+        if (lines.length) setTimeout(typeLine, 300);
+    })();
+</script>
+
+<script>
+    const walkBtn = document.querySelector('.walk-btn');
+
+    walkBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (document.body.classList.contains('leaving')) return;
+
+        document.body.classList.add('leaving');
+
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        setTimeout(() => {
+            window.location.href = walkBtn.href;
+        }, reduce ? 0 : 1100);
+    });
+
+    window.addEventListener('pageshow', (e) => {
+        if (e.persisted) document.body.classList.remove('leaving');
+    });
+</script>
+</body>
+</html>

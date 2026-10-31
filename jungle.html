@@ -31,33 +31,86 @@
     <img class="corner-clover" src="images/leaves.png" alt="corner leaves">
     <img class="corner-tree" src="images/tree.png" alt="">
     <img class="corner-vines" src="images/vines.png" alt="">
-    <img class="bottom-grass" src="images/grass.png" alt="">
+    <img class="bottom-grass" src="images/sway.gif" alt="">
 
     <div class="jungle-text">
     <h1>You wake up, and peer over the bushes.</h1>
     <h1>Once a bustling city, now turned into overgrown ruins..</h1>
-    <a href="next.html" class="walk-btn">Walk through</a>
+    <a href="garden.html" class="walk-btn">Walk through</a>
 </div>
+
+<script>
+    (function () {
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce) return;
+
+        var typeSpeed = 20;
+        var pauseBetween = 400;
+
+        var heads = document.querySelectorAll('.jungle-text h1');
+        var btn = document.querySelector('.jungle-text .walk-btn');
+        var lines = [];
+
+        heads.forEach(function (h) {
+            var full = h.textContent;
+            var typed = document.createElement('span');
+            var rest = document.createElement('span');
+            rest.className = 'tw-rest';
+            rest.textContent = full;
+            h.setAttribute('aria-label', full);
+            h.textContent = '';
+            h.appendChild(typed);
+            h.appendChild(rest);
+            lines.push({ full: full, typed: typed, rest: rest });
+        });
+
+        if (btn) btn.classList.add('tw-hidden');
+
+        var lineIndex = 0;
+        var charIndex = 0;
+
+        function typeLine() {
+            var line = lines[lineIndex];
+            if (charIndex <= line.full.length) {
+                line.typed.textContent = line.full.slice(0, charIndex);
+                line.rest.textContent = line.full.slice(charIndex);
+                charIndex++;
+                setTimeout(typeLine, typeSpeed);
+            } else if (lineIndex < lines.length - 1) {
+                setTimeout(function () {
+                    lineIndex++;
+                    charIndex = 0;
+                    typeLine();
+                }, pauseBetween);
+            } else if (btn) {
+                btn.classList.remove('tw-hidden');
+                btn.classList.add('tw-show');
+            }
+        }
+
+        if (lines.length) setTimeout(typeLine, 300);
+    })();
+</script>
 
 <script>
     const walkBtn = document.querySelector('.walk-btn');
 
-walkBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (document.body.classList.contains('leaving')) return;
+    walkBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (document.body.classList.contains('leaving')) return;
 
-    document.body.classList.add('leaving');
+        document.body.classList.add('leaving');
 
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    setTimeout(() => {
-        window.location.href = walkBtn.href;
-    }, reduce ? 0 : 1100);
-});
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        setTimeout(() => {
+            window.location.href = walkBtn.href;
+        }, reduce ? 0 : 1100);
+    });
 
-// reset if the user comes back with the browser's back button
-window.addEventListener('pageshow', (e) => {
-    if (e.persisted) document.body.classList.remove('leaving');
-});
+    // reset if the user comes back with the browser's back button
+    window.addEventListener('pageshow', (e) => {
+        if (e.persisted) document.body.classList.remove('leaving');
+    });
 </script>
 </body>
 </html>

@@ -1726,9 +1726,11 @@ body {
 .jungle-text {
     width: 100%;
     max-width: 820px;
-    margin: 0 auto;
+    margin: -30px auto 0;
     padding: 0 6% 40px;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .jungle-page h1 {
@@ -1748,9 +1750,10 @@ body {
     margin-bottom: 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
     .jungle-text {
         padding: 0 8% 30px;
+        margin: 0;
     }
 
     .jungle-page h1 {
@@ -1758,6 +1761,29 @@ body {
         letter-spacing: 1.5px;
     }
 }
+.jungle-text .tw-rest {
+    visibility: hidden;
+}
+
+.walk-btn.tw-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.walk-btn.tw-show {
+    animation: tw-fade-in 0.6s ease both;
+}
+
+@keyframes tw-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.jungle-text .tw-rest,
+.garden-text .tw-rest {
+    visibility: hidden;
+}
+
 .walk-btn {
     display: inline-block;
     margin-top: 30px;
@@ -1802,6 +1828,83 @@ body {
     .bottom-grass,
     .jungle-text {
         transition: none;
+    }
+}
+/*------------------- garden page --------------------- */
+.garden-page {
+    background-image:
+        linear-gradient(rgba(20, 20, 19, 0.6), rgba(20, 20, 19, 0.6)),
+        url('images/garden.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #141413;
+    background-position: center 60%;
+    --logo-tint: 0;
+}
+
+@media (max-width: 1200px) {
+    .garden-page { background-position: 65% 60%; }
+}
+
+@media (max-width: 900px) {
+    .garden-page { background-position: 85% 60%; }
+}
+
+@media (max-width: 600px) {
+    .garden-page { background-position: 90% 60%; }
+}
+
+.garden-text {
+    width: 100%;
+    max-width: 820px;
+    margin: 0;
+    padding: 30px 2% 20px;
+    text-align: left;
+}
+.garden-text {
+    transition: opacity 0.9s ease;
+}
+
+.leaving .garden-text {
+    opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .garden-text {
+        transition: none;
+    }
+}
+
+.garden-page h1 {
+    margin-bottom: 18px;
+    font-family: w98regular;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: 2px;
+    color: #a4d1d3;
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.9),
+        0 0 22px #a4d1d3;
+}
+.garden-page h1.italic {
+    font-style: italic;
+}
+
+.garden-page h1:last-of-type {
+    margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+
+   .garden-text {
+        padding: 15px 3% 20px;
+    }
+
+    .garden-page h1 {
+        font-size: 17px;
+        letter-spacing: 1.5px;
     }
 }
 
