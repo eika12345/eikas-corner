@@ -21,8 +21,8 @@
     song.className = 'song-box';
     song.innerHTML = `
         <p class="song-label">My favourite song rn 🎵</p>
-        <p class="song-title">Crumblin’ Erb</p>
-        <p class="song-artist">Outkast</p>
+        <p class="song-title">Jus Lyke Compton</p>
+        <p class="song-artist">DJ Quik</p>
         <a href="songlog.html" class="song-log">!!music corner!!</a>
     `;
 
