@@ -154,13 +154,12 @@ body {
     }
 }
 .home-page .hero {
-    flex: 0 0 auto;        /* stop it from stretching */
-    padding: 30px 5% 20px; /* top, left/right, bottom in px instead of % */
+    flex: 0 0 auto;
+    padding: 30px 5% 20px;
 }
 .home-page .content {
-    padding-top: 10px;
+    padding-top: 0;
 }
-
 
 .page {
     display: flex;
@@ -978,12 +977,10 @@ body {
 }
 /*-------------------credit section----------------*/
 .credit-section {
-    max-width: 600px;
-    margin: 0 auto;
-    padding-top: 30px;
-    padding-bottom: 15px;
+    font-family: w98regular;
+    padding: 70px max(20px, calc((100% - 600px) / 2)) 50px;
     text-align: center;
-    border-top: 1px solid rgba(245, 243, 240, 0.5);
+    border-top: 1px dashed rgba(245, 243, 240, 0.5);
 }
 
 .link-credit {
@@ -1006,14 +1003,15 @@ body {
 }
 
 .credit-section p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.6;
     margin-bottom: 18px;
-    opacity: 0.9;
+    opacity: 0.85;
 }
 
 .credit-section .link-credit {
     margin-top: 10px;
+    font-family: w98regular;
 }
 
 .link-credit.has-bg {
@@ -1036,17 +1034,6 @@ body {
     .credit-section {
         position: relative;
         border-top: none;
-    }
-
-    .credit-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 100vw;
-        margin-left: -50vw;
-        height: 1px;
-        background-color: rgba(245, 243, 240, 0.5);
     }
 }
 
@@ -1471,165 +1458,124 @@ body {
     font-size: 20px;
 }
 /* -----------------------------THE MOON THE EARTH AND HELLLL--------------------------- */
+
+.moon-section {
+    --zone-accent:  #d5d9f0;
+    --zone-box-bg:  #000;
+    --zone-shift:   40px;
+    --zone-img:     var(--moon-img);
+    --zone-tint:    var(--moon-tint);
+    --zone-size:    var(--moon-size);
+    --zone-pos:     var(--moon-pos);
+    --zone-repeat:  var(--moon-repeat);
+}
+.earth-section {
+    --zone-accent:  #d8fd7a;
+    --zone-box-bg:  rgba(0, 0, 0, 0.4);
+    --zone-shift:   -40px;
+    --zone-img:     var(--earth-img);
+    --zone-tint:    var(--earth-tint);
+    --zone-size:    var(--earth-size);
+    --zone-pos:     var(--earth-pos);
+    --zone-repeat:  var(--earth-repeat);
+}
+.hell-section {
+    --zone-accent:  #ff7b77;
+    --zone-box-bg:  rgba(0, 0, 0, 0.8);
+    --zone-shift:   40px;
+    --zone-img:     var(--hell-img);
+    --zone-tint:    var(--hell-tint);
+    --zone-size:    var(--hell-size);
+    --zone-pos:     var(--hell-pos);
+    --zone-repeat:  var(--hell-repeat);
+}
+
 .moon-section,
 .earth-section,
 .hell-section {
     font-family: w98regular;
-}
-.moon-text,
-.earth-text,
-.hell-text {
-    font-size: 16px;
-}
-
-.moon-section {
     min-height: 380px;
     margin: 40px calc(-100% * 8 / 84) -40px;
     padding: 50px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 40px;
     border-top: 1px dashed rgba(245, 243, 240, 0.5);
     background-image:
-    linear-gradient(rgba(20, 20, 19, var(--moon-tint)), rgba(20, 20, 19, var(--moon-tint))),
-    var(--moon-img);
-    background-size: auto, var(--moon-size);
-    background-position: 0 0, var(--moon-pos);
-    background-repeat: no-repeat, var(--moon-repeat);
-    gap: 40px;
-}
-.moon-section table {
-    flex: 0 0 auto;
+        linear-gradient(rgba(20, 20, 19, var(--zone-tint)), rgba(20, 20, 19, var(--zone-tint))),
+        var(--zone-img);
+    background-size: auto, var(--zone-size);
+    background-position: 0 0, var(--zone-pos);
+    background-repeat: no-repeat, var(--zone-repeat);
 }
 
-.moon-text {
-    max-width: 320px;
-    color: #d5d9f0;
-    text-align: left;
-    background-color: #000;
-    border: 2px solid #d5d9f0;
-    padding: 10px;
-    opacity: 0.85;
-}
-
-@media (max-width: 900px) {
-    .moon-section {
-        margin: 30px calc(-100% * 6 / 88) -30px;
-        gap: 10px;
-    }
-}
-/* -----------------------------earth section--------------------------- */
-.earth-section {
-    min-height: 380px;
-    margin: 40px calc(-100% * 8 / 84) -40px;
-    padding: 50px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px dashed rgba(245, 243, 240, 0.5);
-    background-image:
-    linear-gradient(rgba(20, 20, 19, var(--earth-tint)), rgba(20, 20, 19, var(--earth-tint))),
-    var(--earth-img);
-    background-size: auto, var(--earth-size);
-    background-position: 0 0, var(--earth-pos);
-    background-repeat: no-repeat, var(--earth-repeat);
-    gap: 40px;
-}
-.earth-section table {
-    flex: 0 0 auto;
-}
-
-.earth-text {
-    max-width: 320px;
-    color: #d8fd7a;
-    text-align: left;
-    background-color: rgba(0, 0, 0, 0.4);
-    border: 2px solid #d8fd7a;
-    padding: 10px;
-    opacity: 0.85;
-    position: relative;
-    left: -80px;
-}
-
-.earth-heading {
-    margin: 0 0 8px;
-    font-size: 20px;
-    font-family: w98bold;
-}
-.earth-text p {
-    margin: 0 0 8px;
-}
-
-@media (max-width: 900px) {
-    .earth-section {
-        margin: 30px calc(-100% * 6 / 88) -30px;
-        gap: 10px;
-    }
-}
-/* -----------------------------hell section--------------------------- */
-.hell-section {
-    min-height: 380px;
-    margin: 40px calc(-100% * 8 / 84) -40px;
-    padding: 50px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px dashed rgba(245, 243, 240, 0.5);
-    background-image:
-    linear-gradient(rgba(20, 20, 19, var(--hell-tint)), rgba(20, 20, 19, var(--hell-tint))),
-    var(--hell-img);
-    background-size: auto, var(--hell-size);
-    background-position: 0 0, var(--hell-pos);
-    background-repeat: no-repeat, var(--hell-repeat);
-    gap: 40px;
-}
+.moon-section table,
+.earth-section table,
 .hell-section table {
     flex: 0 0 auto;
 }
 
+.moon-text,
+.earth-text,
 .hell-text {
     max-width: 320px;
-    color: #ff7b77;
+    font-size: 16px;
     text-align: left;
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 2px solid #ff7b77;
+    color: var(--zone-accent);
+    background-color: var(--zone-box-bg);
+    border: 2px solid var(--zone-accent);
     padding: 10px;
-    opacity: 0.85;
+    opacity: 0.9;
     position: relative;
-    left: 80px;   
+    left: var(--zone-shift);
 }
+
+.moon-heading,
+.earth-heading,
 .hell-heading {
     margin: 0 0 8px;
     font-size: 20px;
     font-family: w98bold;
 }
+
+.moon-text p,
+.earth-text p,
 .hell-text p {
     margin: 0 0 8px;
 }
+
 .hell-buttons {
     flex: 0 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, 88px);   /* 2 columns, rows fill automatically */
+    grid-template-columns: repeat(2, 88px);
     gap: 6px;
 }
 
-@media (max-width: 900px) {
-    .hell-buttons {
-        grid-template-columns: 88px;           /* 1 column */
+@media (max-width: 1200px) {
+    .moon-section,
+    .earth-section,
+    .hell-section {
+        --zone-shift: 0px;
     }
 }
 
 @media (max-width: 900px) {
+    .moon-section,
+    .earth-section,
     .hell-section {
         margin: 30px calc(-100% * 6 / 88) -30px;
         gap: 10px;
     }
-}
-@media (max-width: 1200px) {
-    .earth-text,
-    .hell-text {
-        left: 0;
+
+    .hell-buttons {
+        grid-template-columns: 88px;
     }
+}
+
+.moon-section {
+    margin-top: 0;
+    border-top: none;
 }
 /* =------------------- jungle page --------------------- */
 .jungle-page {
