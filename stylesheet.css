@@ -764,6 +764,29 @@ body {
     max-width: 100%;
     height: auto;
 }
+.img-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 20px auto;
+}
+
+.entry-body .img-row img {
+    flex: 0 1 auto;
+    height: 70%;
+    width: auto;
+    min-width: 0;
+    max-width: calc(50% - 6px);
+    object-fit: cover;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .img-row {
+        max-width: 100%;
+    }
+}
 
 .entry-mood {
     font-size: 16px;
