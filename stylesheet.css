@@ -781,12 +781,20 @@ body {
     object-fit: cover;
     margin: 0;
 }
+.entry-body .img-row--mixed img {
+    flex: 1 1 0;      /* flex-grow is overridden inline per image */
+    width: 0;         /* sizes come purely from the grow ratio */
+    height: auto;
+    max-width: none;
+    object-fit: initial;
+}
 
 @media (max-width: 900px) {
     .img-row {
         max-width: 100%;
     }
 }
+
 
 .entry-mood {
     font-size: 16px;
