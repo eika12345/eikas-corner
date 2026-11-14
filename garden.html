@@ -22,47 +22,53 @@
 </head>
 <body class="garden-page">
 
-    <div class="garden-text">
+    <div class="scene-fade" id="scene-fade"></div>
+
+    <div class="garden-text" id="garden-text">
         <h1 class="italic">You find an opening in a damaged building, and step through the rubble.</h1>
         <h1 class="italic">The walls are wet, and the air smells of stale earth. It’s a familiar sort of smell, like somewhere you haven’t been in years.</h1>
-        <h1 class="italic">The door catches your eye. It looks strangely out of place, seemingly unaffected by the decay around it.</h1>
-        <!--<a href="next.html" class="walk-btn">Continue</a>-->
+        <h1 class="italic">The door catches your eye. It looks strangely out of place, barely affected by the decay around it.</h1>
+        <a href="#" class="walk-btn" id="investigate-btn">Investigate the door</a>
     </div>
 
 <script>
     (function () {
         var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (reduce) return;
+        var box = document.getElementById('garden-text');
+        var fade = document.getElementById('scene-fade');
+        var busy = false;
 
-        var typeSpeed = 20;
-        var pauseBetween = 900;
-        var sentencePause = 600;
-        
+        function typewrite(container) {
+            var btn = container.querySelector('.walk-btn');
+            if (reduce) return;
 
-        var heads = document.querySelectorAll('.garden-text h1');
-        var btn = document.querySelector('.garden-text .walk-btn');
-        var lines = [];
+            var typeSpeed = 20;
+            var pauseBetween = 900;
+            var sentencePause = 600;
 
-        heads.forEach(function (h) {
-            var full = h.textContent;
-            var typed = document.createElement('span');
-            var rest = document.createElement('span');
-            rest.className = 'tw-rest';
-            rest.textContent = full;
-            h.setAttribute('aria-label', full);
-            h.textContent = '';
-            h.appendChild(typed);
-            h.appendChild(rest);
-            lines.push({ full: full, typed: typed, rest: rest });
-        });
+            var heads = container.querySelectorAll('h1');
+            var lines = [];
 
-        if (btn) btn.classList.add('tw-hidden');
+            heads.forEach(function (h) {
+                var full = h.textContent;
+                var typed = document.createElement('span');
+                var rest = document.createElement('span');
+                rest.className = 'tw-rest';
+                rest.textContent = full;
+                h.setAttribute('aria-label', full);
+                h.textContent = '';
+                h.appendChild(typed);
+                h.appendChild(rest);
+                lines.push({ full: full, typed: typed, rest: rest });
+            });
 
-        var lineIndex = 0;
-        var charIndex = 0;
+            if (btn) btn.classList.add('tw-hidden');
 
-        function typeLine() {
-            var line = lines[lineIndex];
+            var lineIndex = 0;
+            var charIndex = 0;
+
+            function typeLine() {
+                var line = lines[lineIndex];
                 if (charIndex <= line.full.length) {
                     line.typed.textContent = line.full.slice(0, charIndex);
                     line.rest.textContent = line.full.slice(charIndex);
@@ -77,41 +83,64 @@
                     charIndex++;
                     setTimeout(typeLine, delay);
                 } else if (lineIndex < lines.length - 1) {
-                    
                     setTimeout(function () {
                         lineIndex++;
                         charIndex = 0;
                         typeLine();
                     }, pauseBetween);
-
                 } else if (btn) {
                     btn.classList.remove('tw-hidden');
                     btn.classList.add('tw-show');
+                }
             }
+
+            if (lines.length) setTimeout(typeLine, 300);
         }
 
-        if (lines.length) setTimeout(typeLine, 300);
+        /* ----------the door ---------- */
+        var doorScene = [
+            'The smell is stronger here. You know it. You just can’t remember from where.',
+            'The handle is spotless. Someone has been using this door.',
+            'From somewhere behind it comes a quiet, steady sound. Almost like breathing.'
+        ];
+
+        function showDoorScene() {
+            document.body.classList.add('door-scene');
+            box.innerHTML = '';
+            doorScene.forEach(function (text) {
+                var h = document.createElement('h1');
+                h.className = 'italic';
+                h.textContent = text;
+                box.appendChild(h);
+            });
+            // next button etc
+            // box.insertAdjacentHTML('beforeend', '<a href="next.html" class="walk-btn">Open the door</a>');
+            typewrite(box);
+        }
+
+        function investigate(e) {
+            e.preventDefault();
+            if (busy) return;
+            busy = true;
+
+            if (reduce) {
+                showDoorScene();
+                return;
+            }
+
+            fade.classList.add('on');
+            setTimeout(function () {
+                showDoorScene();
+                requestAnimationFrame(function () {
+                    fade.classList.remove('on');
+                });
+            }, 700);
+        }
+
+        document.getElementById('investigate-btn').addEventListener('click', investigate);
+
+        typewrite(box);
     })();
-</script>
-
-<script>
-    const walkBtn = document.querySelector('.walk-btn');
-
-    walkBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (document.body.classList.contains('leaving')) return;
-
-        document.body.classList.add('leaving');
-
-        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        setTimeout(() => {
-            window.location.href = walkBtn.href;
-        }, reduce ? 0 : 1100);
-    });
-
-    window.addEventListener('pageshow', (e) => {
-        if (e.persisted) document.body.classList.remove('leaving');
-    });
 </script>
 </body>
 </html>

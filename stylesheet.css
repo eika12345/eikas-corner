@@ -1754,6 +1754,16 @@ body {
     background-color: #e6f3c8;
     color: #141413;
 }
+.garden-text .walk-btn {
+    border-color: #a4d1d3;
+    color: #a4d1d3;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 0 22px #a4d1d3;
+}
+
+.garden-text .walk-btn:hover {
+    background-color: #a4d1d3;
+    color: #141413;
+}
 
 .jungle-page .logo,
 .corner-clover,
@@ -1857,6 +1867,52 @@ body {
         font-size: 17px;
         letter-spacing: 1.5px;
     }
+}
+
+.scene-fade {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 0.6s ease;
+}
+.scene-fade.on { opacity: 1; }
+
+body.garden-page.door-scene {
+    --img-h: 78vh;
+    --img-w: calc(var(--img-h) * 0.7536);
+
+    background-color: #000;
+    background-image:
+        linear-gradient(to right, #000 0%, rgba(0,0,0,0.5) 6%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.5) 94%, #000 100%),
+        linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.5) 6%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.5) 94%, #000 100%),
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url("images/door.png");
+    background-size:
+        var(--img-w) var(--img-h),
+        var(--img-w) var(--img-h),
+        var(--img-w) var(--img-h),
+        var(--img-w) var(--img-h);
+    background-position: center, center, center, center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+@media (max-aspect-ratio: 3/4) {
+    body.garden-page.door-scene {
+        --img-w: 100vw;
+        --img-h: calc(100vw * 1.327);
+    }
+}
+
+body.door-scene .garden-text h1 {
+    text-shadow: 0 2px 10px #000, 0 0 3px #000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scene-fade { transition: none; }
 }
 
 /*=========================================================BACKGROUNDS==========================================================*/
