@@ -20,15 +20,18 @@
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
-        .corner-text {
+        .corner-text-wrap {
             position: fixed;
-            bottom: 16px;
-            left: 16px;
+            bottom: 8px;
+            left: 8px;
             z-index: 10;
+        }
+
+        .corner-text {
             margin: 0;
-            font-size: 14px;
+            font-size: 17px;
             color: #F5F3F0;
-            opacity: 0.9;
+            font-family: w98regular;
         }
     </style>
 </head>
@@ -47,7 +50,10 @@
             <button id="bg-btn" class="bg-btn" type="button">Change background</button>
         </div>
 
-        <p class="corner-text">This site needs Javascript!!</p>
+        <div class="corner-text-wrap">
+            <p class="corner-text" style="opacity: 0.7;">This site needs Javascript!!</p>
+            <p class="corner-text">(CTRL + SHIFT + R) if it's not your first time here!</p>
+        </div>
 
         <div class="splash-wrap">
             <div class="splash">
