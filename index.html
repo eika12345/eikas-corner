@@ -25,13 +25,19 @@
             bottom: 8px;
             left: 8px;
             z-index: 10;
+            max-width: calc(100vw - 260px);
         }
 
         .corner-text {
             margin: 0;
             font-size: 17px;
             color: #F5F3F0;
-            font-family: w98regular;
+        }
+
+        @media (max-width: 550px) {
+            .corner-text-wrap {
+                display: none;
+            }
         }
     </style>
 </head>
