@@ -12,7 +12,6 @@ const parts = {
   'site-nav-right': `
     <nav class="sidebar sidebar-right">
         <a href="https://www.instagram.com/erikas.2005/?hl=en" target="_blank">Instagram</a>
-        <a href="https://github.com/eika12345" target="_blank">Dev Corner (Github)</a>
         <a href="https://erikaspetrauskas.com/" target="_blank">Portfolio</a>
         <a href="sources.html">Sources</a>
         <a href="index.html">Landing</a>
@@ -25,7 +24,6 @@ const parts = {
             <p class="footer-links">
                 <a href="home.html">Home</a>
                 <a href="https://www.instagram.com/erikas.2005/?hl=en" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="https://github.com/eika12345" target="_blank" rel="noopener noreferrer">Dev Corner</a>
                 <a href="https://erikaspetrauskas.com/" target="_blank" rel="noopener noreferrer">Portfolio</a>
                 <a href="sources.html">Sources</a>
                 <a href="index.html">Landing</a>
