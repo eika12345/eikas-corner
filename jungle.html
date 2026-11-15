@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WELCOME TO THE JUNGLE</title>
+    <title> What is this place?............. Who..... Who am I?.............</title>
     <meta name="description" content="WELCOME TO THE JUNGLE">
 
     <meta property="og:type" content="website">
@@ -107,10 +107,17 @@
         }, reduce ? 0 : 1100);
     });
 
-    // reset if the user comes back with the browser's back button
     window.addEventListener('pageshow', (e) => {
         if (e.persisted) document.body.classList.remove('leaving');
     });
+
+const fullTitle = document.title + "   ";
+        let pos = 0;
+
+setInterval(() => {
+    document.title = fullTitle.substring(pos) + fullTitle.substring(0, pos);
+    pos = (pos + 1) % fullTitle.length;
+  }, 160);
 </script>
 </body>
 </html>
