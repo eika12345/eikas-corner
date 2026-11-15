@@ -39,6 +39,7 @@
                 display: none;
             }
         }
+
     </style>
 </head>
 <body class="splash-body">
@@ -131,6 +132,13 @@
         
     ];
 
+    // Mobile versions: add "desktop file": "mobile file" pairs here
+    var mobileVersions = {
+        "images/dreamcorebg.png": "images/dreamcorebgmobile.png"
+    };
+
+    var mobileQuery = window.matchMedia('(max-width: 700px), (orientation: portrait)');
+
     var btn = document.getElementById('bg-btn');
     if (!btn) return;
 
@@ -141,11 +149,17 @@
     } catch (e) {}
 
     function apply() {
-        document.body.style.setProperty('--splash-bg', "url('" + backgrounds[index] + "')");
+        var file = backgrounds[index];
+        if (mobileQuery.matches && mobileVersions[file]) file = mobileVersions[file];
+        document.body.style.setProperty('--splash-bg', "url('" + file + "')");
         try { localStorage.setItem('splashBg', index); } catch (e) {}
     }
 
     apply();
+
+    // re-apply if the phone is rotated / window resized across the breakpoint
+    if (mobileQuery.addEventListener) mobileQuery.addEventListener('change', apply);
+    else if (mobileQuery.addListener) mobileQuery.addListener(apply);
 
     btn.addEventListener('click', function () {
         index = (index + 1) % backgrounds.length;
