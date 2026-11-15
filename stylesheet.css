@@ -2009,7 +2009,7 @@ body.door-scene .garden-text h1 {
 }
 
 .home-page {
-    --logo-img:    url('images/homelogobg.jpg');
+    --logo-img:    url('images/homelogobg.png');
     --main-img:    url('images/homemainbg.png');
     --main-size:   cover;
     --main-pos:    center 60%;
@@ -2068,7 +2068,7 @@ body.door-scene .garden-text h1 {
     --footer-tint:  0.6;
 }
 .manga-page {
-    --logo-img:    url('images/mangalogobg.png');
+    --logo-img:    url('images/mangalogobg.jpg');
     --main-img:    url('images/mangamainbg.png');
     /*--sidebar-img: url('images/noneyet.png');*/
     /*--footer-img:  url('images/noneyet.png');*/
