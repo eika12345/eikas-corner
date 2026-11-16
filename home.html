@@ -81,8 +81,15 @@
             </div>
 
             <div class="credit-section">
+                <div class="about-box">
+                    <h3 class="about-heading">You're in my spot</h3>
+                    <p>Every few days, I sit down and regurgitate the slop I've consumed straight onto my desk and keyboard, which then gets uploaded to this website. Don't slip.</p>
+                </div>
+
+                <div class="credit-box">
                     <p>Most of the content and styles here are inspired by other sites, it wouldn't be very nice if I didn't give them some credit..</p>
                     <a href="links.html" class="link-credit has-bg">websites i like</a>
+                </div>
             </div>
         </div>
 
@@ -112,7 +119,7 @@
         } else {
             pageFade.style.transition = 'none';
             pageFade.classList.remove('fade-out');
-            void pageFade.offsetWidth; // force reflow before re-enabling transition
+            void pageFade.offsetWidth;
             pageFade.style.transition = '';
         }
     })();

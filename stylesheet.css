@@ -980,12 +980,36 @@ body {
         max-width: 100%;
     }
 }
-/*-------------------credit section----------------*/
+/*-------------------credit/about section----------------*/
 .credit-section {
     font-family: w98regular;
-    padding: 70px max(20px, calc((100% - 600px) / 2)) 50px;
-    text-align: center;
+    padding: 70px 8% 50px;
     border-top: 1px dashed rgba(245, 243, 240, 0.5);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+}
+
+.about-box,
+.credit-box {
+    padding: 0 6%;
+}
+
+.about-box {
+    text-align: left;
+    border-right: 1px dashed rgba(245, 243, 240, 0.5);
+}
+
+.credit-box {
+    text-align: center;
+}
+
+.about-heading {
+    margin: 0 0 12px;
+    font-size: 20px;
+    font-family: w98bold;
+    font-weight: normal;
+    letter-spacing: 1px;
 }
 
 .link-credit {
@@ -1039,6 +1063,20 @@ body {
     .credit-section {
         position: relative;
         border-top: none;
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-box,
+    .credit-box {
+        padding: 0;
+        text-align: center;
+    }
+
+    .about-box {
+        border-right: none;
+        padding-bottom: 40px;
+        border-bottom: 1px dashed rgba(245, 243, 240, 0.5);
     }
 }
 
