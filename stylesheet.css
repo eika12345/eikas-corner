@@ -677,7 +677,7 @@ body {
     background-color: #F5F3F0;
     color: #141413;
 }
-
+/*---------------------- blog -----------------*/
 .entry {
     margin-bottom: 50px;
     padding-bottom: 45px;
@@ -756,8 +756,8 @@ body {
     margin: 0;
 }
 .entry-body .img-row--mixed img {
-    flex: 1 1 0;      /* flex-grow is overridden inline per image */
-    width: 0;         /* sizes come purely from the grow ratio */
+    flex: 1 1 0;
+    width: 0;
     height: auto;
     max-width: none;
     object-fit: initial;
@@ -769,14 +769,13 @@ body {
     }
 }
 
-
 .entry-mood {
     font-size: 16px;
     font-style: italic;
     margin: 18px 0 10px;
     color: #a2a6e2;
 }
-
+/*------------------------- index -------------------------*/
 .typewriter-cursor {
     display: inline-block;
     margin-left: 2px;
@@ -2172,6 +2171,7 @@ body.door-scene .garden-text h1 {
     --sidebar-tint: 0.6;
     --footer-tint:  0.6;
 }
+
 /*grain*/
 body::after {
     content: "";
