@@ -1498,6 +1498,29 @@ body {
 .gb-entry .entry-title {
     font-size: 20px;
 }
+
+.gb-entry .entry-title {
+    margin-bottom: 8px;
+}
+
+.gb-website {
+    font-size: 15px;
+    margin-bottom: 16px;
+}
+
+.gb-website a {
+    color: #a2a6e2;
+    text-decoration: underline;
+}
+
+.gb-website a:hover {
+    color: #F5F3F0;
+}
+
+.gb-optional {
+    opacity: 0.6;
+    font-size: 0.85em;
+}
 /* -----------------------------THE MOON THE EARTH AND HELLLL--------------------------- */
 
 .moon-section {

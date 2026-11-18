@@ -30,6 +30,21 @@ function formatDate(iso) {
     return `${date} - ${time}`;
 }
 
+// Only allow http/https links (blocks javascript: etc). Returns a clean URL or "".
+function cleanWebsite(raw) {
+    let s = (raw || "").trim();
+    if (!s) return "";
+    if (!/^[a-z][a-z0-9+.-]*:/i.test(s)) s = "https://" + s;
+    try {
+        const u = new URL(s);
+        if (u.protocol !== "http:" && u.protocol !== "https:") return "";
+        if (!u.hostname.includes(".")) return "";
+        return u.href;
+    } catch {
+        return "";
+    }
+}
+
 async function loadEntries() {
     try {
         const res = await fetch(`${TABLE_ENDPOINT}?select=*&order=created_at.desc`, {
@@ -49,6 +64,13 @@ async function loadEntries() {
     }
 }
 
+function renderWebsite(raw) {
+    const url = cleanWebsite(raw);   // re-validate on display too, never trust the DB
+    if (!url) return "";
+    const label = new URL(url).hostname.replace(/^www\./, "");
+    return `<p class="gb-website"><a href="${escapeHTML(url)}" target="_blank" rel="nofollow noopener noreferrer ugc">${escapeHTML(label)}</a></p>`;
+}
+
 function renderEntries(entries) {
     if (!entries.length) {
         entriesEl.innerHTML = `<p class="gb-empty">no one's signed yet, be the first.</p>`;
@@ -59,6 +81,7 @@ function renderEntries(entries) {
         <article class="entry gb-entry">
             <p class="entry-date">${formatDate(entry.created_at)}</p>
             <h2 class="entry-title">${escapeHTML(entry.name)}</h2>
+            ${renderWebsite(entry.website)}
             <div class="entry-body">
                 <p>${escapeHTML(entry.message)}</p>
             </div>
@@ -73,6 +96,13 @@ form.addEventListener("submit", async (e) => {
     const message = form.message.value.trim();
     if (!name || !message) return;
 
+    const rawWebsite = form.website.value.trim();
+    const website = cleanWebsite(rawWebsite);
+    if (rawWebsite && !website) {
+        statusEl.textContent = "that website doesn't look right.";
+        return;
+    }
+
     submitBtn.disabled = true;
     statusEl.textContent = "signing...";
 
@@ -85,7 +115,7 @@ form.addEventListener("submit", async (e) => {
                 "Content-Type": "application/json",
                 Prefer: "return=minimal"
             },
-            body: JSON.stringify({ name, message })
+            body: JSON.stringify({ name, message, website: website || null })
         });
 
         if (!res.ok) throw new Error(`Failed to submit (${res.status})`);
