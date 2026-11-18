@@ -301,6 +301,27 @@ body {
     margin-bottom: 0;
 }
 
+.song-figure {
+    max-width: 260px;
+    margin: 6px auto 18px;
+}
+
+.song-figure img,
+.entry-body .song-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+.song-figure figcaption {
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: center;
+    opacity: 0.7;
+}
+
 .song-entry {
     display: grid;
     grid-template-columns: 1fr;
