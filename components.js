@@ -41,9 +41,9 @@ for (const [tag, html] of Object.entries(parts)) {
     connectedCallback() {
       const t = document.createElement('template');
       t.innerHTML = html.trim();
-      this.replaceWith(t.content);   // swaps the tag for the real markup, so your CSS is unchanged
+      this.replaceWith(t.content);
 
-      if (tag === 'site-footer') {   // scripts inside innerHTML don't run, so add this one manually
+      if (tag === 'site-footer') {
         const s = document.createElement('script');
         s.src = 'https://bonkiscoolsite.neocities.org/bonkiring/bonkiring-widget.js';
         document.getElementById('bonki-ring').appendChild(s);

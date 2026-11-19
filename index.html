@@ -92,6 +92,8 @@
         var lineIndex = 0;
         var charIndex = 0;
  
+        var startDelay = 1500; // ms to wait before typing begins   
+
         function typeLine() {
             var current = lines[lineIndex];
             if (charIndex <= current.length) {
@@ -108,10 +110,11 @@
                 var gate = document.getElementById('gate');
                 if (gate) gate.classList.add('gate-visible');
             }
+             
         }
  
         window.addEventListener('load', function () {
-            typeLine();
+            setTimeout(typeLine, startDelay);
         });
  
         var continueBtn = document.getElementById('continue-btn');

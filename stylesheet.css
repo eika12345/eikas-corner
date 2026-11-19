@@ -1542,7 +1542,6 @@ body {
     font-size: 0.85em;
 }
 /* -----------------------------THE MOON THE EARTH AND HELLLL--------------------------- */
-
 .moon-section {
     --zone-accent:  #d5d9f0;
     --zone-box-bg:  #000;
@@ -1578,7 +1577,7 @@ body {
 .earth-section,
 .hell-section {
     font-family: w98regular;
-    min-height: 380px;
+    min-height: 460px;
     margin: 40px calc(-100% * 8 / 84) -40px;
     padding: 50px 20px;
     display: flex;
