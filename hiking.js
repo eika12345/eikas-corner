@@ -13,7 +13,6 @@
     var reduceMotion = window.matchMedia &&
         window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /* chronological numbering: Hike #1 is the oldest */
     var hikes = D.hikes.slice()
         .sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; })
         .map(function (h, i) { return Object.assign({}, h, { n: i + 1, id: 'hike-' + (i + 1) }); });
@@ -23,7 +22,6 @@
     var map = null, pins = null, markers = {}, editDot = null;
     var floatEl = null, floatAnchor = null;
 
-    /* ---------- helpers ---------- */
     function esc(s) {
         return String(s).replace(/[&<>"']/g, function (c) {
             return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -33,7 +31,6 @@
     function num(n) { return (Math.round(n * 10) / 10).toString(); }
     function visible() { return hikes.filter(function (h) { return active[h.difficulty]; }); }
 
-    /* ---------- totals ---------- */
     function renderStats() {
     var km = 0, hrs = 0, count = 0, longest = null;
     hikes.forEach(function (h) {
@@ -55,7 +52,6 @@
     }).join('');
     }
 
-    /* ---------- filters (also the legend) ---------- */
     function renderFilters() {
         $('hike-filters').innerHTML = Object.keys(DIFF).map(function (k) {
             return '<label class="hike-filter">' +
@@ -72,7 +68,6 @@
         });
     }
 
-    /* ---------- map ---------- */
     function popupHtml(h) {
     return '<div class="hk-pop">' +
            '<strong>' + esc(h.name) + '</strong>' +
@@ -90,8 +85,6 @@
         var el = $('hike-map');
         el.innerHTML = '';
 
-        /* the box takes its shape from mapWidth / mapHeight in hiking-data.js,
-           so the image and the pin coordinates always share one aspect ratio */
         el.style.aspectRatio = D.mapWidth + ' / ' + D.mapHeight;
         el.style.height = 'auto';
 
@@ -122,7 +115,6 @@
 
         window.addEventListener('resize', placeFloat);
 
-        /* add ?edit to the page address to read pin coordinates */
         if (/[?&]edit(&|=|$)/.test(location.search)) {
             el.addEventListener('click', function (e) {
                 if (e.target.closest('.hk-icon')) return;
@@ -163,9 +155,6 @@
         });
     }
 
-    /* ---------- floating popup ----------
-       Rendered on <body> (not inside the map), so it sits on top of everything
-       and is never clipped by the map box. */
     function closeFloat() {
         if (floatEl && floatEl.parentNode) floatEl.parentNode.removeChild(floatEl);
         floatEl = null;
@@ -227,7 +216,6 @@
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeFloat();
     });
-    /* capture: catches scrolling of any container, so the popup stays attached to its pin */
     document.addEventListener('scroll', placeFloat, true);
 
     /* ---------- trail log ---------- */
@@ -302,7 +290,6 @@
         el.innerHTML = card('Best hike', best) + card('Worst hike', worst);
     }
 
-    /* ---------- simple lists ---------- */
     function fillList(id, items, fn) {
         var el = $(id);
         if (!el) return;
@@ -314,13 +301,11 @@
         });
     }
 
-    /* ---------- events ---------- */
     document.addEventListener('click', function (e) {
         var s = e.target.closest && e.target.closest('[data-show]');
         if (s) showOnMap(s.getAttribute('data-show'));
     });
 
-    /* ---------- go ---------- */
     renderStats();
     renderFilters();
     initMap();
