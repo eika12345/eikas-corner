@@ -1,0 +1,458 @@
+body { background-image: url(images/5ammountain.png); }
+
+html::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100lvh;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+        url('images/hikingbg.png') center / cover no-repeat;
+}
+
+.hiking-page {
+    --logo-img:    none;
+    --logo-tint:   0;
+    --footer-tint: 0.6;
+
+    --accent:  #83ac1e;
+    --accent2: #5d7918;
+    --ink:     #F5F3F0;
+    --ground:  rgba(20, 20, 19, 0.9);
+    --panel:   rgba(245, 243, 240, 0.05);
+    --line:    rgba(245, 243, 240, 0.3);
+    --gutter:  clamp(16px, 3.2vw, 56px);
+}
+
+.hiking-page .sidebar,
+.hiking-page .sidebar-left,
+.hiking-page .sidebar-right,
+.hiking-page .vertical-separator { display: none; }
+
+.hiking-page .page { padding: 0; }
+@media (min-width: 901px) {
+}
+
+.hk-site {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: w98regular;
+    font-size: 16px;
+    color: var(--ink);
+    text-align: left;
+}
+.hk-site a { color: var(--accent); }
+.hk-site a:hover { color: #fff; }
+.hk-site :focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* ---------- hero ---------- */
+.hk-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+    gap: 24px var(--gutter);
+    align-items: end;
+    padding: 10px var(--gutter) 0;
+}
+.hk-title {
+    font-family: w98bold;
+    font-weight: normal;
+    font-size: clamp(34px, 3.2vw, 96px);
+    line-height: 1.05;
+    margin: 0;
+    padding-bottom: 20px;
+    color: var(--ink);
+    text-shadow: 4px 4px 0 #000;
+}
+.hk-intro {
+    background: var(--ground);
+    border: 2px solid var(--accent);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.6);
+    padding: 16px 18px;
+    margin-bottom: 14px;
+}
+.hk-intro p { line-height: 1.45; margin: 0; }
+
+/* ---------- ridge ---------- */
+.hk-ridge {
+    display: block;
+    width: 100%;
+    height: clamp(56px, 9vw, 170px);
+    margin-bottom: -1px;
+}
+.hk-ridge-fill { fill: var(--ground); }
+.hk-ridge-line {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 3;
+    stroke-linejoin: round;
+}
+
+.hk-ground {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    padding: 4px var(--gutter) 56px;
+    background: var(--ground);
+}
+
+.hk-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 20px;
+}
+
+.hk-head h2 {
+    font-family: w98bold;
+    font-size: 26px;
+    font-weight: normal;
+    margin: 0;
+    position: relative;
+}
+
+.hk-head-sm { margin-bottom: 12px; }
+.hk-head-sm h2 { font-size: 20px; }
+.hk-rule { flex: 1; border-top: 2px dashed var(--line); }
+
+.hk-sub, .hike-sub {
+    font-family: w98bold;
+    font-size: 18px;
+    font-weight: normal;
+    color: var(--accent);
+    margin: 0 0 10px;
+}
+.hike-sub { margin-top: 22px; }
+
+/* buttons */
+.hike-btn {
+    font-family: w98regular;
+    font-size: 14px;
+    background: #000;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    padding: 4px 10px;
+    cursor: pointer;
+}
+.hike-btn:hover,
+.hike-btn:focus-visible { background: var(--accent); color: #000; }
+.hk-site a.hike-btn:hover { color: #000; }
+
+/* ---------- totals ---------- */
+.hike-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 18px; }
+.hike-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 4px 20px;
+    border-left: 2px dashed var(--line);
+}
+.hike-stat:first-child { border-left: 0; padding-left: 0; }
+.hike-stat-num { font-family: w98bold; font-size: clamp(30px, 3vw, 64px); line-height: 1; color: var(--accent); }
+.hike-stat-label { font-size: 15px; opacity: 0.8; }
+.hk-statnote {
+    margin: 14px 0 0;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* ---------- map ---------- */
+.hk-mapgrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 32px;
+    align-items: start;
+}
+.hk-mapcol { min-width: 0; }
+
+.hike-map {
+    aspect-ratio: 1754 / 1240;
+    width: 100%;
+    height: auto;
+    flex: none;
+    position: relative;
+    background: #141413;
+    border: 2px solid var(--accent2);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.6);
+}
+.hike-map-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+.hike-pins { position: absolute; inset: 0; }
+.hike-maperror { padding: 20px; }
+.hike-hint { padding-top: 14px; font-size: 14px; opacity: 0.7; }
+
+.hk-editdot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    margin: -5px 0 0 -5px;
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    pointer-events: none;
+}
+.hk-icon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.hk-pin {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: var(--c);
+    border: 2px solid #000;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.6);
+}
+.hk-icon:hover .hk-pin,
+.hk-icon:focus-visible .hk-pin { outline: 2px solid #fff; }
+.hk-icon:focus { outline: none; }
+
+/* map popup */
+.hk-float {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    width: max-content;
+    min-width: 180px;
+    max-width: min(280px, 90vw);
+    font-family: w98regular;
+}
+.hk-float-box {
+    background: #000;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    padding: 10px 28px 10px 14px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.hk-float-tip {
+    position: absolute;
+    top: 100%;
+    width: 12px;
+    height: 12px;
+    margin: -7px 0 0 -6px;
+    background: #000;
+    border: 2px solid var(--accent);
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+}
+.hk-float-close {
+    position: absolute;
+    top: 4px;
+    right: 9px;
+    color: var(--accent);
+    font-size: 20px;
+    line-height: 1;
+    text-decoration: none;
+}
+.hk-pop { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+.hk-pop strong { font-family: w98bold; font-size: 15px; font-weight: normal; color: #F5F3F0; }
+.hk-pop .hike-btn { margin-top: 4px; }
+
+.hk-side { border-left: 2px dashed var(--line); padding-left: 24px; }
+.hike-filters { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.hike-filter { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+.hike-filter input {
+    appearance: none;
+    -webkit-appearance: none;
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    background: #000;
+    border: 2px solid var(--accent);
+    border-radius: 0;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+}
+.hike-filter input::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    transform: scale(0);
+}
+.hike-filter input:checked::before { transform: scale(1); }
+.hike-swatch { width: 16px; height: 16px; background: var(--c); border: 2px solid #000; }
+
+.hike-super { display: flex; flex-direction: column; gap: 12px; }
+.hike-super-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+    padding: 12px 14px;
+    background: var(--panel);
+    border-left: 4px solid var(--c);
+}
+.hike-super-label { font-size: 14px; opacity: 0.75; }
+.hike-super-card strong { font-family: w98bold; font-size: 18px; font-weight: normal; }
+
+/* ---------- trail log + rail ---------- */
+.hk-logsec {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 48px var(--gutter);
+    align-items: start;
+}
+.hk-logcol { min-width: 0; }
+.hk-rail {
+    position: sticky;
+    top: 16px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    border-left: 2px dashed var(--line);
+    padding-left: 24px;
+}
+
+.hike-log {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-left: 34px;
+}
+.hike-log::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 10px;
+    bottom: 10px;
+    border-left: 2px dashed var(--line);
+}
+.hike-entry {
+    position: relative;
+    padding: 14px 18px;
+    background: var(--panel);
+}
+.hike-entry::before {
+    content: "";
+    position: absolute;
+    left: -26px;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    background: var(--c);
+    border: 2px solid #000;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.hike-entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    margin-bottom: 4px;
+}
+.hike-entry-head h3 { font-family: w98bold; font-size: 20px; font-weight: normal; margin: 0; }
+.hike-entry-meta { opacity: 0.9; }
+.hike-diff { color: var(--c); }
+.hike-entry-note { margin: 10px 0; line-height: 1.5; max-width: 70ch; }
+.hike-empty { opacity: 0.8; }
+
+.hike-entry-body {
+    display: flex;
+    align-items: stretch;
+    gap: 18px;
+}
+.hike-entry-body .hike-entry-note {
+    flex: 1 1 0;
+    min-width: 0;
+}
+.hike-entry-photo {
+    position: relative;
+    flex: 0 0 45%;
+    min-height: 230px;
+    margin: 10px 0;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6);
+}
+@media (min-width: 1200px) {
+    .hike-entry-photo {
+        margin-left: 60px;
+    }
+}
+.hike-entry-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes hike-flash {
+    0%, 100% { box-shadow: 0 0 0 0 transparent; }
+    30%      { box-shadow: 0 0 0 3px var(--accent); }
+}
+.hike-flash { animation: hike-flash 1s ease-out 1; }
+
+.hike-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.hike-list li { line-height: 1.4; padding-left: 16px; position: relative; }
+.hike-list li::before { content: '>'; position: absolute; left: 0; color: var(--accent); }
+.hike-checks li { padding-left: 30px; }
+.hike-checks li::before { content: '[ ]'; }
+.hike-checks li.done::before { content: '[x]'; }
+.hike-checks li.done { opacity: 0.6; text-decoration: line-through; }
+.hike-ranked { counter-reset: rank; }
+.hike-ranked li { counter-increment: rank; padding-left: 28px; }
+.hike-ranked li::before { content: counter(rank) '.'; font-family: w98bold; }
+
+/* ---------- mobile ---------- */
+@media (max-width: 900px) {
+
+    .hike-entry-body { 
+        flex-direction: column; 
+    }
+    .hike-entry-photo { 
+        width: 100%;
+        max-width: 320px; 
+        margin-bottom: 30px;
+    }
+
+    .hk-hero { grid-template-columns: 1fr; padding-top: 0; }
+    .hk-ground { gap: 40px; padding-bottom: 40px; }
+    .hk-head h2 { font-size: 22px; }
+
+    .hike-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hike-stat { padding: 4px 14px; }
+    .hike-stat:nth-child(odd) { border-left: 0; padding-left: 0; }
+    
+
+    .hk-mapgrid, .hk-logsec { grid-template-columns: 1fr; gap: 28px; }
+    .hk-mapscroll { overflow-x: auto; padding-bottom: 8px; }
+    .hk-mapscroll .hike-map { min-width: 760px; }
+
+    .hk-side, .hk-rail {
+        position: static;
+        max-height: none;
+        border-left: 0;
+        padding-left: 0;
+        border-top: 2px dashed var(--line);
+        padding-top: 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hk-ridge-line { animation: none; stroke-dashoffset: 0; }
+    .hike-flash { animation: none; outline: 2px solid var(--accent); }
+}

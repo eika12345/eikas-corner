@@ -36,7 +36,7 @@ body {
     font-family: EBGaramond;
     display: flex;
     flex-direction: column;
-    overflow-x: clip; /* was hidden */
+    overflow-x: clip;
 }
 
 .page-fade {
@@ -1992,6 +1992,7 @@ body.door-scene .garden-text h1 {
 @media (prefers-reduced-motion: reduce) {
     .scene-fade { transition: none; }
 }
+
 
 /*=========================================================BACKGROUNDS==========================================================*/
 

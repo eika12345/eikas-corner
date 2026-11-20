@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Immortal Buntarō</title>
+    <meta name="description" content="(Almost) all my hikes so far">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Eikas Corner | Hiking">
+    <meta property="og:description" content="(Almost) all my hikes so far">
+    <meta property="og:image" content="https://eikascorner.neocities.org/images/eikascornerlogo.png">
+    <meta property="og:url" content="https://eikascorner.neocities.org/hiking.html">
+
+    <link rel="alternate" type="application/rss+xml" title="Eikas Corner RSS Feed" href="feed.xml">
+
+    <script src="components.js"></script>
+
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="hiking.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+
+<body class="hiking-page">
+    <div class="logo">
+        <a href="home.html">
+            <img src="images/eikascornerlogo.png" alt="eikascornerlogo">
+        </a>
+    </div>
+
+    <div class="page">
+        <div class="hk-site">
+
+            <!-- hero -->
+            <header class="hk-hero">
+                <h1 class="hk-title">(Almost) all my hikes so far</h1>
+
+                <div class="hk-intro">
+                    <div class="hk-head hk-head-sm"><h2>How it all began</h2></div>
+                    <p>I started hiking during the summer of 2026, because I had to get into shape for my trip to Albania. Since then, I've conquered all my local peaks and I am now looking for something TALLER, STEEPER AND SCARIER </p>
+                </div>
+            </header>
+
+            <!-- ridge line: the page's one big moment -->
+            <svg class="hk-ridge" viewBox="0 0 1000 90" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <path class="hk-ridge-fill" d="M0 90 L0 58 L70 40 L120 52 L200 16 L270 46 L330 34 L410 62 L490 24 L560 44 L650 6 L710 36 L790 22 L860 54 L930 30 L1000 44 L1000 90 Z"/>
+                <path class="hk-ridge-line" pathLength="1" d="M0 58 L70 40 L120 52 L200 16 L270 46 L330 34 L410 62 L490 24 L560 44 L650 6 L710 36 L790 22 L860 54 L930 30 L1000 44"/>
+            </svg>
+
+            <div class="hk-ground">
+
+                <!-- totals -->
+                <section class="hk-stats" aria-label="Totals">
+                    <div id="hike-stats" class="hike-stats"></div>
+                    <p class="hk-statnote">Not really accurate, only tracks the hikes I've added to this page</p>
+                </section>
+
+                <!-- map + key + best/worst -->
+                <section id="the-map" class="hk-section">
+                    <div class="hk-head hk-head-plain"><i class="hk-rule"></i></div>
+                    <div class="hk-mapgrid">
+                        <div class="hk-mapcol">
+                            <div class="hk-mapscroll">
+                                <div id="hike-map" class="hike-map" aria-label="Interactive map of my hikes">
+                                    <noscript>The map needs JavaScript. The full trail log is below though, once it loads.</noscript>
+                                </div>
+                            </div>
+                            <p class="hike-hint">a VERY geographically correct map</p>
+                        </div>
+
+                        <aside class="hk-side">
+                            <h3 class="hk-sub">Difficulty filter</h3>
+                            <div id="hike-filters" class="hike-filters" role="group" aria-label="Filter hikes by difficulty"></div>
+
+                            <h3 class="hk-sub">best &amp; worst</h3>
+                            <div id="hike-superlatives" class="hike-super"></div>
+                        </aside>
+                    </div>
+                </section>
+
+                <!-- trail log + bucket list -->
+                <div class="hk-logsec">
+                    <section id="trail-log" class="hk-logcol">
+                        <div class="hk-head">
+                            <h2>Trail log</h2><i class="hk-rule"></i>
+                        </div>
+                        <div id="hike-log" class="hike-log"></div>
+                    </section>
+
+                    <section id="bucket-list" class="hk-rail">
+                        <div class="hk-head"><h2>Bucket list</h2></div>
+                        <ul id="hike-bucket" class="hike-list hike-checks"></ul>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <site-footer></site-footer>
+
+<script src="sidebars.js"></script>
+<script>
+    (function () {
+        var pageFade = document.querySelector('.page-fade');
+        if (!pageFade) return;
+
+        var shouldFade = sessionStorage.getItem('fadeTransition') === '1';
+        sessionStorage.removeItem('fadeTransition');
+
+        if (shouldFade) {
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    pageFade.classList.remove('fade-out');
+                });
+            });
+        } else {
+            pageFade.style.transition = 'none';
+            pageFade.classList.remove('fade-out');
+            void pageFade.offsetWidth;
+            pageFade.style.transition = '';
+        }
+    })();
+</script>
+
+<script src="hiking-data.js"></script>
+<script src="hiking.js"></script>
+
+</body>
+</html>

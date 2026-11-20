@@ -2,11 +2,12 @@ const parts = {
   'site-nav-left': `
     <nav class="sidebar sidebar-left">
         <a href="home.html">Home</a>
+        <a href="hiking.html">Hiking</a>
         <a href="blog.html">Blog</a>
-        <a href="jungle.html" style="color: #a4d1d3;">Alternate timeline..</a>
         <a href="gallery.html">Gallery</a>
-        <a href="guestbook.html">Guestbook</a>
         <a href="links.html">Links</a>
+        <a href="guestbook.html">Guestbook</a>
+        <a href="jungle.html" style="color: #a4d1d3;">Alternate timeline..</a>
     </nav>`,
 
   'site-nav-right': `
