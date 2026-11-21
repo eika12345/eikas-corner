@@ -80,6 +80,26 @@
                 </div>
             </div>
 
+            <div class="marquee" aria-hidden="true">
+                <div class="marquee-track">
+
+                    <div class="marquee-group">
+                        <a href="https://hydrangea-pop.neocities.org/" target="_blank" rel="noopener"><img src="https://hydrangea-pop.neocities.org/button2.gif" alt="hydrangea-pop"></a>
+                        <span class="marquee-sep">✦</span>
+                        <a href="https://hightide3ra.neocities.org/" target="_blank" rel="noopener"><img src="https://files.catbox.moe/gqizo1.png" width="88" height="33" alt="hightide3ra"></a>
+                        <span class="marquee-sep">✦</span>
+                    </div>
+
+                    <div class="marquee-group">
+                        <a href="https://hydrangea-pop.neocities.org/" target="_blank" rel="noopener"><img src="https://hydrangea-pop.neocities.org/button2.gif" alt="hydrangea-pop"></a>
+                        <span class="marquee-sep">✦</span>
+                        <a href="https://hightide3ra.neocities.org/" target="_blank" rel="noopener"><img src="https://files.catbox.moe/gqizo1.png" width="88" height="33" alt="hightide3ra"></a>
+                        <span class="marquee-sep">✦</span>
+                    </div>
+
+                </div>
+            </div>
+
             <div class="credit-section">
                 <div class="about-box">
                     <h3 class="about-heading">You're in my spot</h3>
@@ -165,6 +185,32 @@
             btn.textContent = newestFirst ? 'Oldest' : 'Newest';
         });
     })();
+    (function () {
+    var marquee = document.querySelector('.marquee');
+    if (!marquee) return;
+
+    var groups = marquee.querySelectorAll('.marquee-group');
+    var first = groups[0];
+    var unit = first.innerHTML; // one set of buttons + stars
+
+    function build() {
+        first.innerHTML = unit;
+        var guard = 0;
+        while (first.offsetWidth < marquee.offsetWidth && guard++ < 100) {
+            first.insertAdjacentHTML('beforeend', unit);
+        }
+        for (var i = 1; i < groups.length; i++) {
+            groups[i].innerHTML = first.innerHTML; // exact copy keeps the loop seamless
+        }
+    }
+
+    window.addEventListener('load', build); // wait for images so widths are real
+    var t;
+    window.addEventListener('resize', function () {
+        clearTimeout(t);
+        t = setTimeout(build, 150);
+    });
+})();
 </script>
 
 
